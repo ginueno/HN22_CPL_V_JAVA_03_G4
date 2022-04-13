@@ -16,6 +16,7 @@ public class Trip {
     private int bookedTicketNumber;
     private String carType;
     private Date departureDate;
+    private Date departureTime;
     private String destination;
     private String driver;
     private int maximumOnlineTicketNumber;
