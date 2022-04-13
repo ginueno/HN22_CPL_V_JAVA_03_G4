@@ -5,3 +5,4 @@
 /src/main/resources/properties/DBConfig.properties
 /target/
 src/main/java/entities/Car.java
+src/main/java/entities/ParkingLot.java
