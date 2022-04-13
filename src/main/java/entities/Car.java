@@ -13,6 +13,6 @@ public class Car {
     private String licensePlate;
     private String carColor;
     private String carType;
-    private String company;
+    private int company;
     private int parkId;
 }
