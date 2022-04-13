@@ -2,5 +2,5 @@
 /src/main/resources/
 /src/main/java/entities/
 /target/**
-targer\**
 .idea
+.target
