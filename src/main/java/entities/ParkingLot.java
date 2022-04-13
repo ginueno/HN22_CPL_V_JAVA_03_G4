@@ -11,7 +11,7 @@ import lombok.ToString;
 @Builder
 public class ParkingLot {
     private int parkId;
-    private int parkArea;
+    private double parkArea;
     private String parkName;
     private String parkPlace;
     private double parkPrice;
