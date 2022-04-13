@@ -14,6 +14,6 @@ public class ParkingLot {
     private int parkArea;
     private String parkName;
     private String parkPlace;
-    private int parkPrice;
+    private double parkPrice;
     private String parkStatus;
 }
