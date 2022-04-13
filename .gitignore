@@ -10,3 +10,8 @@ target/WebApp/WEB-INF/classes/entities/ParkingLot$ParkingLotBuilder.class
 target/WebApp/WEB-INF/classes/entities/ParkingLot.class
 target/WebApp/WEB-INF/web.xml
 target/classes/entities/Car$CarBuilder.class
+target/classes/entities/Car.class
+target/classes/entities/Car$CarBuilder.class
+target/classes/entities/Car.class
+target/classes/entities/ParkingLot$ParkingLotBuilder.class
+target/classes/properties/DBConfig.properties
