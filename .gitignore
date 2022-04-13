@@ -2,4 +2,4 @@
 /src/main/java/utils/
 /src/main/resources/
 /src/main/webapp/WEB-INF/
-src/main/java/entities/Car.java
+src/main/resources/properties/DBConfig.properties
