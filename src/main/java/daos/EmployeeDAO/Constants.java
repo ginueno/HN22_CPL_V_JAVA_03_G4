@@ -13,6 +13,7 @@ public class Constants {
             "employeeName = ?\n" +
             "employeePhone = ?\n" +
             "password = ?\n" +
-            "sex = ?";
+            "sex = ? \n" +
+            "WHERE employeeId = ?";
     public static String EMPLOYEE_DELETE = "DELETE FROM employee WHERE employeeId = ?";
 }
