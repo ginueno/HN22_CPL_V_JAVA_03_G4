@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -100,11 +101,11 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach items="${listOfEMployee}" var="employee">
+                        <c:forEach items="${listOfEmployee}" var="employee">
                             <tr>
                                 <td>${employee.employeeId}</td>
                                 <td>${employee.employeeName}</td>
-                                <td>${employee.employeeBirthdate}</td>
+                                <td><fmt:formatDate value="${employee.employeeBirthdate}" pattern="yyyy-mm-dd" /></td>
                                 <td>${employee.employeeAddress}</td>
                                 <td>${employee.employeePhone}</td>
                                 <td>${employee.department}</td>

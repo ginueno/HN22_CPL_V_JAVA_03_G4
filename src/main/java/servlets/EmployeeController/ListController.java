@@ -24,7 +24,7 @@ public class ListController extends HttpServlet {
         try{
             List<Employee> list = employeeDAO.getAll();
             req.setAttribute("listOfEmployee",list);
-            req.getRequestDispatcher("views/EmployeeJSP/add.jsp");
+            req.getRequestDispatcher("views/EmployeeJSP/list.jsp").forward(req,resp);
         } catch (SQLException e) {
             e.printStackTrace();
         }
