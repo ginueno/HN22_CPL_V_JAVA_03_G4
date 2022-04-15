@@ -60,7 +60,7 @@
                     <div id="abc" class="">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item border-bottom-0 bg-light">
-                                <a href="#" class="ms-3 nav-link link-primary">
+                                <a href="${pageContext.request.contextPath}/list-emp" class="ms-3 nav-link link-primary">
                                     <i class="fas fa-list"></i>
                                     Employee list
                                 </a>
@@ -81,7 +81,7 @@
         <!--CONTENT-->
         <div class="col-10 px-0">
             <div class="pt-5 ps-5 pe-5">
-                <p class="h2 fw-normal mb-3">Add Management</p>
+                <p class="h2 fw-normal mb-3">Add Employee</p>
                 <hr>
             </div>
             <div class="text-center">
