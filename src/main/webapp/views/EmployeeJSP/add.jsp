@@ -196,7 +196,7 @@
                                        placeholder="Enter password"
                                        pattern="^(?=.*?[A-Z])(?=.*?[a-z]).{6,}$"
 
-                                required>
+                                       required>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -215,7 +215,8 @@
                         </div>
                         <div class="row mb-3">
                             <div class="col-7 text-center">
-                                <button type="reset" class="btn btn-primary"><i class="fas fa-backward"></i>
+                                <button type="reset" class="btn btn-primary" onclick="history.back()"><i
+                                        class="fas fa-backward"></i>
                                     Back
                                 </button>
                                 <button type="reset" class="btn btn-warning"><i class="fas fa-undo"></i>
