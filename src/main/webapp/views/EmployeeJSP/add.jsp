@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,7 +46,7 @@
             <div class="bg-light vh-100 border-end">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item bg-light">
-                        <a href="#" class="nav-link link-primary">
+                        <a href="${pageContext.request.contextPath}/employeehome" class="nav-link link-primary">
                             <i class="fas fa-tachometer-alt"></i>
                             Dashboard
                         </a>
@@ -64,7 +66,7 @@
                                 </a>
                             </li>
                             <li class="list-group-item border-bottom bg-light">
-                                <a href="#" class="ms-3 nav-link link-primary">
+                                <a href="${pageContext.request.contextPath}/add-emp" class="ms-3 nav-link link-primary">
                                     <i class="fas fa-plus"></i>
                                     Add Employee
                                 </a>
@@ -82,10 +84,14 @@
                 <p class="h2 fw-normal mb-3">Add Management</p>
                 <hr>
             </div>
+            <div class="text-center">
+                <p class="text-success">${NOTI}</p>
+                <p class="text-danger">${ERROR}</p>
+            </div>
 
             <div class="pt-5 ps-5 pe-5">
                 <div>
-                    <form action="${pageContext.request.contextPath}/trip-add" method="post">
+                    <form action="${pageContext.request.contextPath}/add-emp" method="post">
                         <div class="row mb-3">
                             <div class="col-2">
                                 <label class="fw-bold" role="button" for="name">
@@ -208,7 +214,7 @@
                         </div>
                         <div class="row mb-3">
                             <div class="col-7 text-center">
-                                <button class="btn btn-primary"><i class="fas fa-backward"></i>
+                                <button type="reset" class="btn btn-primary"><i class="fas fa-backward"></i>
                                     Back
                                 </button>
                                 <button type="reset" class="btn btn-warning"><i class="fas fa-undo"></i>

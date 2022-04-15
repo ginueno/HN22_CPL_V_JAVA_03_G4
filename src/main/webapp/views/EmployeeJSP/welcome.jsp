@@ -46,7 +46,7 @@
             <div class="bg-light vh-100 border-end">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item bg-light">
-                        <a href="#" class="nav-link link-primary">
+                        <a href="${pageContext.request.contextPath}/employeehome" class="nav-link link-primary">
                             <i class="fas fa-tachometer-alt"></i>
                             Dashboard
                         </a>
@@ -66,7 +66,7 @@
                                 </a>
                             </li>
                             <li class="list-group-item border-bottom bg-light">
-                                <a href="#" class="ms-3 nav-link link-primary">
+                                <a href="${pageContext.request.contextPath}/add-emp" class="ms-3 nav-link link-primary">
                                     <i class="fas fa-plus"></i>
                                     Add Employee
                                 </a>

@@ -8,7 +8,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmployeeDAOImpl implements iEmployeeDAO{
+public class EmployeeDAOImpl implements iEmployeeDAO {
     private Connection connection = null;
     private PreparedStatement preparedStatement = null;
     private CallableStatement callableStatement = null;
@@ -28,7 +28,7 @@ public class EmployeeDAOImpl implements iEmployeeDAO{
                         .account(resultSet.getString(2))
                         .department(resultSet.getString(3))
                         .employeeAddress(resultSet.getString(4))
-                        .employeeBirthdate(DateUtils.convertStringToDate(resultSet.getString(5)))
+                        .employeeBirthdate(resultSet.getDate(5))
                         .employeeEmail(resultSet.getString(6))
                         .employeeName(resultSet.getString(7))
                         .employeePhone(resultSet.getString(8))
@@ -50,7 +50,7 @@ public class EmployeeDAOImpl implements iEmployeeDAO{
         try {
             connection = DBUtils.getInstance().getConnection();
             preparedStatement = connection.prepareStatement(Constants.EMPLOYEE_GET_BY_ID);
-            preparedStatement.setInt(1,id);
+            preparedStatement.setInt(1, id);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 employee = Employee.builder()
@@ -58,7 +58,7 @@ public class EmployeeDAOImpl implements iEmployeeDAO{
                         .account(resultSet.getString(2))
                         .department(resultSet.getString(3))
                         .employeeAddress(resultSet.getString(4))
-                        .employeeBirthdate(DateUtils.convertStringToDate(resultSet.getString(5)))
+                        .employeeBirthdate(resultSet.getDate(5))
                         .employeeEmail(resultSet.getString(6))
                         .employeeName(resultSet.getString(7))
                         .employeePhone(resultSet.getString(8))
@@ -89,7 +89,7 @@ public class EmployeeDAOImpl implements iEmployeeDAO{
             preparedStatement.setString(8, employee.getPassword());
             preparedStatement.setString(9, employee.getSex());
             int result = preparedStatement.executeUpdate();
-            if(result > 0) return true;
+            if (result > 0) return true;
             return false;
         } catch (Exception e) {
             e.printStackTrace();
@@ -111,9 +111,9 @@ public class EmployeeDAOImpl implements iEmployeeDAO{
             preparedStatement.setString(7, employee.getEmployeePhone());
             preparedStatement.setString(8, employee.getPassword());
             preparedStatement.setString(9, employee.getSex());
-            preparedStatement.setInt(10,employee.getEmployeeId());
+            preparedStatement.setInt(10, employee.getEmployeeId());
             int result = preparedStatement.executeUpdate();
-            if(result > 0) return true;
+            if (result > 0) return true;
             return false;
         } catch (Exception e) {
             e.printStackTrace();
@@ -126,9 +126,9 @@ public class EmployeeDAOImpl implements iEmployeeDAO{
         try {
             connection = DBUtils.getInstance().getConnection();
             preparedStatement = connection.prepareStatement(Constants.EMPLOYEE_DELETE);
-            preparedStatement.setInt(1,id);
+            preparedStatement.setInt(1, id);
             int result = preparedStatement.executeUpdate();
-            if(result > 0) return true;
+            if (result > 0) return true;
             return false;
         } catch (Exception e) {
             e.printStackTrace();
