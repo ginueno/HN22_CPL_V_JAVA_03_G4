@@ -139,13 +139,13 @@
                                 <div class="form-check-inline">
                                     <label class="form-check-label">
                                         <input type="radio" class="form-check-input" name="sex" id="sex"
-                                               value="Male" checked> Male
+                                               value="M" checked> Male
                                     </label>
                                 </div>
                                 <div class="form-check-inline">
                                     <label class="form-check-label">
                                         <input type="radio" class="form-check-input" name="sex" id="sex"
-                                               value="Female"> Female
+                                               value="F"> Female
                                     </label>
                                 </div>
                             </div>
@@ -195,8 +195,7 @@
                                 <input type="password" class="form-control" id="password" name="password"
                                        placeholder="Enter password"
                                        pattern="^(?=.*?[A-Z])(?=.*?[a-z]).{6,}$"
-                                       oninput="setCustomValidity(" At least 6 characters. At least one uppercase, one
-                                       lowercase and one digit.")"
+
                                 required>
                             </div>
                         </div>
