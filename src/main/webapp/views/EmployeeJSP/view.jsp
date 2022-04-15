@@ -11,7 +11,7 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/styles.css"/>
     <script src="https://kit.fontawesome.com/32b1007cf0.js" crossorigin="anonymous"></script>
-    <title>Add Employee</title>
+    <title>View Employee</title>
 </head>
 
 <body>
@@ -82,7 +82,7 @@
         <!--CONTENT-->
         <div class="col-10 px-0">
             <div class="pt-5 ps-5 pe-5">
-                <p class="h2 fw-normal mb-3">Add Employee</p>
+                <p class="h2 fw-normal mb-3">View Employee</p>
                 <hr>
             </div>
             <div class="text-center">
@@ -92,7 +92,8 @@
 
             <div class="pt-5 ps-5 pe-5">
                 <div>
-                    <form action="${pageContext.request.contextPath}/add-emp" method="post">
+                    <form action="${pageContext.request.contextPath}/view-emp?id=${employee.employeeId}"
+                          method="post">
                         <div class="row mb-3">
                             <div class="col-2">
                                 <label class="fw-bold" role="button" for="name">
@@ -102,7 +103,8 @@
                             </div>
                             <div class="col-5">
                                 <input type="text" class="form-control" id="name" name="name"
-                                       placeholder="Enter full name" required>
+                                       placeholder="Enter full name"
+                                       value="${employee.employeeName}" required>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -115,7 +117,7 @@
                             <div class="col-5">
                                 <input type="text" class="form-control" id="phone"
                                        name="phone" placeholder="Enter phone number" pattern="\d{10}"
-                                       required>
+                                       value="${employee.employeePhone}" required>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -126,7 +128,8 @@
                                 </label>
                             </div>
                             <div class="col-5">
-                                <input type="date" class="form-control" id="bday" name="bday" required>
+                                <input type="date" class="form-control" id="bday" name="bday"
+                                       value="${bday}" required>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -146,7 +149,7 @@
                                 <div class="form-check-inline">
                                     <label class="form-check-label">
                                         <input type="radio" class="form-check-input" name="sex" id="sex"
-                                               value="F"> Female
+                                               value="F" ${employee.sex == "F" ? 'checked' : ''}> Female
                                     </label>
                                 </div>
                             </div>
@@ -159,7 +162,7 @@
                             </div>
                             <div class="col-5">
                                 <input type="text" class="form-control" id="address"
-                                       name="address" placeholder="Enter address">
+                                       name="address" placeholder="Enter address" value="${employee.employeeAddress}">
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -170,8 +173,7 @@
                             </div>
                             <div class="col-5">
                                 <input type="text" class="form-control" id="email"
-                                       name="email" placeholder="Enter email"
-                                       pattern="[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+">
+                                       name="email" placeholder="Enter email" value="${employee.employeeEmail}">
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -183,7 +185,7 @@
                             </div>
                             <div class="col-5">
                                 <input type="text" class="form-control" id="account" name="account"
-                                       placeholder="Enter account" required>
+                                       placeholder="Enter account" value="${employee.account}" required>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -197,7 +199,7 @@
                                 <input type="password" class="form-control" id="password" name="password"
                                        placeholder="Enter password"
                                        pattern="^(?=.*?[A-Z])(?=.*?[a-z]).{6,}$"
-
+                                       value="${employee.password}"
                                        required>
                             </div>
                         </div>
@@ -210,8 +212,12 @@
                             </div>
                             <div class="col-5">
                                 <select class="form-control" id="dept" name="dept">
-                                    <option value="employee">Employee</option>
-                                    <option value="parking">Parking</option>
+                                    <option value="employee" ${employee.department == "employee" ? 'selected':''}>
+                                        Employee
+                                    </option>
+                                    <option value="parking" ${employee.department == "parking" ? 'selected':''}>
+                                        Parking
+                                    </option>
                                 </select>
                             </div>
                         </div>
@@ -224,9 +230,13 @@
                                 <button type="reset" class="btn btn-warning"><i class="fas fa-undo"></i>
                                     Reset
                                 </button>
-                                <button type="submit" class="btn btn-success"><i class="fas fa-plus"></i>
-                                    Add
+                                <button type="submit" class="btn btn-success"><i class="fas fa-file-pen"></i>
+                                    Update
                                 </button>
+                                <a href="${pageContext.request.contextPath}/delete-emp?id=${employee.employeeId}"
+                                   role="button" class="btn btn-danger"><i class="fas fa-trash-can"></i>
+                                    Delete
+                                </a>
                             </div>
                         </div>
                     </form>

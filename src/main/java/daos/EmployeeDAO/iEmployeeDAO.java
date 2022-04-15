@@ -11,4 +11,5 @@ public interface iEmployeeDAO {
     public boolean add(Employee employee) throws SQLException;
     public boolean update(Employee employee) throws SQLException;
     public boolean delete(int id) throws SQLException;
+    public List<Employee> search(String search, String criteria) throws SQLException;
 }

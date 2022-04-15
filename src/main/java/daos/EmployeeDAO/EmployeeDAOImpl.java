@@ -135,4 +135,38 @@ public class EmployeeDAOImpl implements iEmployeeDAO {
             throw new SQLException();
         }
     }
+
+    @Override
+    public List<Employee> search(String search, String criteria) throws SQLException {
+        List<Employee> list = new ArrayList<>();
+        Employee employee = null;
+        try {
+            connection = DBUtils.getInstance().getConnection();
+            if(criteria.equals("name")) preparedStatement = connection.prepareStatement(Constants.EMPLOYEE_GET_BY_NAME);
+            if(criteria.equals("address")) preparedStatement = connection.prepareStatement(Constants.EMPLOYEE_GET_BY_ADDRESS);
+            if(criteria.equals("phone")) preparedStatement = connection.prepareStatement(Constants.EMPLOYEE_GET_BY_PHONE);
+            if(criteria.equals("dept")) preparedStatement = connection.prepareStatement(Constants.EMPLOYEE_GET_BY_DEPARTMENT);
+            preparedStatement.setString(1,search);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                employee = Employee.builder()
+                        .employeeId(resultSet.getInt(1))
+                        .account(resultSet.getString(2))
+                        .department(resultSet.getString(3))
+                        .employeeAddress(resultSet.getString(4))
+                        .employeeBirthdate(DateUtils.convertStringToDate(resultSet.getString(5)))
+                        .employeeEmail(resultSet.getString(6))
+                        .employeeName(resultSet.getString(7))
+                        .employeePhone(resultSet.getString(8))
+                        .password(resultSet.getString(9))
+                        .sex(resultSet.getString(10))
+                        .build();
+                list.add(employee);
+            }
+            return list;
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new SQLException();
+        }
+    }
 }

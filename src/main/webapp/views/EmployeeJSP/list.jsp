@@ -61,7 +61,8 @@
                     <div id="abc" class="">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item border-bottom-0 bg-light">
-                                <a href="${pageContext.request.contextPath}/list-emp" class="ms-3 nav-link link-primary">
+                                <a href="${pageContext.request.contextPath}/list-emp"
+                                   class="ms-3 nav-link link-primary">
                                     <i class="fas fa-list"></i>
                                     Employee list
                                 </a>
@@ -85,10 +86,45 @@
                 <p class="h2 fw-normal mb-3">Employee List</p>
                 <hr>
             </div>
-
-            <div class="pt-5 ps-5 pe-5">
+            <div class="ps-5 pe-5">
                 <div>
-                    <table class="table table-striped table-bordered">
+                    <form class="form-inline" action="${pageContext.request.contextPath}/search-emp" method="post">
+                        <div class="row">
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-4">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa-solid fa-magnifying-glass"></i><br>
+                                        </span>
+                                    </div>
+                                    <input type="text" id="search" name="search" class="form-control"
+                                           value="${search}" placeholder="User search">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa-solid fa-filter"></i>&nbsp; Filter by
+                                        </span>
+                                    </div>
+                                    <select class="form-control" id="criteria" name="criteria">
+                                        <option value="name" ${criteria=="name" ? 'selected':''}>Name</option>
+                                        <option value="address" ${criteria=="address" ? 'selected':''}>Address</option>
+                                        <option value="phone" ${criteria=="phone" ? 'selected':''}>Phone</option>
+                                        <option value="dept" ${criteria=="dept" ? 'selected':''}>Department</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-1">
+                                <button type="submit" class="btn btn-primary">
+                                    Search
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <table class="table table-striped table-bordered" id="emp-table">
                         <thead class="bg-light border-bottom-0">
                         <tr>
                             <th>ID</th>
@@ -105,16 +141,19 @@
                             <tr>
                                 <td>${employee.employeeId}</td>
                                 <td>${employee.employeeName}</td>
-                                <td><fmt:formatDate value="${employee.employeeBirthdate}" pattern="yyyy-mm-dd" /></td>
+                                <td><fmt:formatDate value="${employee.employeeBirthdate}" pattern="yyyy-mm-dd"/></td>
                                 <td>${employee.employeeAddress}</td>
                                 <td>${employee.employeePhone}</td>
                                 <td>${employee.department}</td>
-                                <td><a href="${pageContext.request.contextPath}/view-emp?tripId=${employee.employeeId}"
+                                <td><a href="${pageContext.request.contextPath}/view-emp?id=${employee.employeeId}"
                                        class="text-decoration-none"><i class="fas fa-edit"></i> View</a></td>
                             </tr>
                         </c:forEach>
                         </tbody>
                     </table>
+                    <div class="text-center">
+                        <p class="text-danger">${ERROR}</p>
+                    </div>
                 </div>
             </div>
         </div>
