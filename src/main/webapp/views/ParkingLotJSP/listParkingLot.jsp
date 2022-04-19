@@ -54,7 +54,7 @@
                                             <i class="fa-solid fa-filter"></i>&nbsp; Filter by
                                         </span>
                                     </div>
-                                    <select class="form-control" id="criteria" name="criteria">
+                                    <select class="form-select" id="criteria" name="criteria">
                                         <option value="id" ${criteria=="id" ? 'selected':''}>Id</option>
                                         <option value="name" ${criteria=="name" ? 'selected':''}>Parking lot</option>
                                         <option value="place" ${criteria=="place" ? 'selected':''}>Place</option>

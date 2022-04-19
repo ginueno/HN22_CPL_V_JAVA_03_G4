@@ -20,8 +20,17 @@ public class SearchParkingLotController extends HttpServlet {
         resp.setContentType("text/html;charset=UTF-8");
         req.setCharacterEncoding("UTF-8");
         try {
-            List<ParkingLot> list = lotDAO.getAllParkingLot() ;
+            String keyword = req.getParameter("keyword");
+            String criteria = req.getParameter("criteria");
+            List<ParkingLot> list;
+            if (keyword.equals("")){
+                 list = lotDAO.getAllParkingLot();
+            }else {
+                list = lotDAO.search(keyword,criteria) ;
+            }
             req.setAttribute("ListParkingLot",list);
+            req.setAttribute("keyword",keyword);
+            req.setAttribute("criteria",criteria);
             req.getRequestDispatcher("views/ParkingLotJSP/listParkingLot.jsp").forward(req,resp);
         } catch (SQLException e) {
             e.printStackTrace();
