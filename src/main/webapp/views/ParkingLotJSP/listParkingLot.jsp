@@ -94,7 +94,7 @@
                                 <td>${item.parkName}</td>
                                 <td>${item.parkPlace}</td>
                                 <td>${item.parkArea}</td>
-                                <td>${item.parkPrice}</td>
+                                <td><fmt:formatNumber type = "number"  groupingUsed = "false" value = "${item.parkPrice}" /></td>
                                 <td>${item.parkStatus}</td>
                                 <td>
                                     <span class="me-3">
