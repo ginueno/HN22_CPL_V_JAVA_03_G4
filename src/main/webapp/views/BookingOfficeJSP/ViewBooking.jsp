@@ -114,7 +114,7 @@
                             <div class="col-5">
                                 <select name="trip" class="form-control" id="txtDepartureTime">
                                     <c:forEach items="${listC}" var="c">
-                                        <option value="${c.tripId}">${c.destination}</option>
+                                        <option value="${c.tripId}" ${e.tripId==c.tripId ? 'selected' : '' }>${c.destination}</option>
                                     </c:forEach>
                                 </select><br>
                             </div>
@@ -141,7 +141,7 @@
                             <div class="col-5">
                                 <select name="place" class="form-control" id="txtCarType">
                                     <c:forEach items="${listB}" var="b">
-                                        <option>${b.officePlace}</option>
+                                        <option ${e.officePlace==b.officePlace ? 'selected' : '' }>${b.officePlace}</option>
                                     </c:forEach>
                                 </select><br>
                             </div>
@@ -184,7 +184,7 @@
                         </div>
                         <button type="submit" class="btn btn-success"><i class="fas fa-plus"></i>
                             Update</button>
-                    <a href="DeleteBooking?id=${e.officeId}" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">Delete</i></a>
+                    <a href="DeleteBooking?id=${e.officeId}" class="btn btn-danger" role="button" title="Delete" data-toggle="tooltip"><i class="material-icons"><i class="fas fa-redo"></i> Delete </i></a>
 
                     </form>
                     <!--END CODE HERE-->
