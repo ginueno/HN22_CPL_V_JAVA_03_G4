@@ -1,6 +1,6 @@
 package daos.BookingOfficeDAO;
 
-import daos.ParkingLotDAO.ParkingLotDAOCons;
+
 import entities.BookingOffice;
 import entities.ParkingLot;
 import entities.Trip;
