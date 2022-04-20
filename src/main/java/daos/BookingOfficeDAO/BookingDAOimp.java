@@ -1,6 +1,8 @@
 package daos.BookingOfficeDAO;
 
+import daos.ParkingLotDAO.ParkingLotDAOCons;
 import entities.BookingOffice;
+import entities.ParkingLot;
 import entities.Trip;
 import utils.BookingSQL;
 import utils.DBUtils;
@@ -159,9 +161,46 @@ public class BookingDAOimp implements BookingDAO{
         }
     }
 
+    @Override
+    public List<BookingOffice> searchBooking(String keyword, String criteria) throws SQLException {
+        List<BookingOffice> Booking = new ArrayList<>();
+
+        try (Connection connection = DBUtils.getInstance().getConnection()) {
+            PreparedStatement preparedStatement = null;
+
+            switch (criteria) {
+                case "id":
+                    preparedStatement = connection.prepareStatement(BookingSQL.searchBookingId);
+                    break;
+                case "name":
+                    preparedStatement = connection.prepareStatement(BookingSQL.searchBookingName);
+                    break;
+            }
+
+            preparedStatement.setString(1, keyword);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                BookingOffice b = BookingOffice.builder()
+                        .officeId(rs.getInt(1))
+                        .endContractDeadline(rs.getDate(2))
+                        .officeName(rs.getString(3))
+                        .officePhone(rs.getString(4))
+                        .officePlace(rs.getString(5))
+                        .officePrice(rs.getDouble(6))
+                        .startContractDeadline(rs.getDate(7))
+                        .tripId(rs.getInt(8)).build();
+                Booking.add(b);
+            }
+            return Booking;
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new SQLException();
+        }
+    }
+
     public static void main(String[] args) throws SQLException {
         BookingDAOimp b = new BookingDAOimp();
-        System.out.println(b.getBookingbyId(1));
+        System.out.println(b.searchBooking("h","name"));
 
     }
 }

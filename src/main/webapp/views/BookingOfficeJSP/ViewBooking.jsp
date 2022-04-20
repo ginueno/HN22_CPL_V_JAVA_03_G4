@@ -88,6 +88,7 @@
 
             <div class="pt-5 ps-5 pe-5">
                 <div>
+
                     <!--ADD CODE HERE-->
 
                     <form action="UpdateBooking" method="post">
