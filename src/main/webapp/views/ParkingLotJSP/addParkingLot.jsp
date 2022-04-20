@@ -55,7 +55,7 @@
                             </div>
                             <div class="col-5">
                                 <select class="form-select" id="pPlace" name="pPlace">
-                                    <c:forEach items="${place}" var="item">
+                                    <c:forEach items="${requestScope.place}" var="item">
                                         <option value="${item}">${item}</option>
                                     </c:forEach>
                                 </select>

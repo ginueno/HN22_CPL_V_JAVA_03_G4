@@ -18,8 +18,6 @@ public class DeleteParkingLotController extends HttpServlet {
     private ParkingLotDAOImpl lotDAO = new ParkingLotDAOImpl();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("text/html;charset=UTF-8");
-        req.setCharacterEncoding("UTF-8");
         try {
             int id = Integer.parseInt(req.getParameter("id"));
             boolean check  = lotDAO.deleteParkingLot(id);

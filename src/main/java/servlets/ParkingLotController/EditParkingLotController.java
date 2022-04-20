@@ -36,6 +36,8 @@ public class EditParkingLotController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("text/html;charset=UTF-8");
+        req.setCharacterEncoding("UTF-8");
         String name = req.getParameter("pName");
         String place = req.getParameter("pPlace");
         double area = Double.parseDouble(req.getParameter("pArea"));
