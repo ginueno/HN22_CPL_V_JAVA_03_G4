@@ -169,4 +169,35 @@ public class EmployeeDAOImpl implements iEmployeeDAO {
             throw new SQLException();
         }
     }
+
+    @Override
+    public Employee logIn(String account, String password) throws SQLException {
+        Employee employee = null;
+        try{
+            connection = DBUtils.getInstance().getConnection();
+            preparedStatement = connection.prepareStatement(Constants.EMPLOYEE_LOGIN);
+            preparedStatement.setString(1,account);
+            preparedStatement.setString(2,password);
+            resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()) {
+                employee = Employee.builder()
+                        .employeeId(resultSet.getInt(1))
+                        .account(resultSet.getString(2))
+                        .department(resultSet.getString(3))
+                        .employeeAddress(resultSet.getString(4))
+                        .employeeBirthdate(DateUtils.convertStringToDate(resultSet.getString(5)))
+                        .employeeEmail(resultSet.getString(6))
+                        .employeeName(resultSet.getString(7))
+                        .employeePhone(resultSet.getString(8))
+                        .password(resultSet.getString(9))
+                        .sex(resultSet.getString(10))
+                        .build();
+                return employee;
+            }
+            return null;
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new SQLException();
+        }
+    }
 }

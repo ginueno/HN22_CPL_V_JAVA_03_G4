@@ -11,6 +11,12 @@ public class DateUtils {
         Date date = formatter.parse(dateString);
         return date;
     }
+    public static Date convertStringToDateAlt(String dateString)
+            throws ParseException {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");
+        Date date = formatter.parse(dateString);
+        return date;
+    }
     public static java.sql.Date convertJavaDateToSqlDate(Date javaDate) {
         java.sql.Date sqlDate = new java.sql.Date(javaDate.getTime());
         return sqlDate;

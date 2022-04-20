@@ -21,8 +21,8 @@
         <div class="col-2 px-0">
             <li class="list-group-item bg-light border-end-0 border-top-0 border-start-0">
                 <a class="nav-link text-secondary text-decoration-none" href="#">
-                    <i class="fas fa-users"></i>
-                    Employee
+                    <i class="fas fa-square-parking"></i>
+                    Parking
                 </a>
             </li>
         </div>
@@ -46,29 +46,73 @@
             <div class="bg-light vh-100 border-end">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item bg-light">
-                        <a href="${pageContext.request.contextPath}/employeehome" class="nav-link link-primary">
+                        <a href="${pageContext.request.contextPath}/parkinghome" class="nav-link link-primary">
                             <i class="fas fa-tachometer-alt"></i>
                             Dashboard
                         </a>
                     </li>
                     <li class="list-group-item border-bottom bg-light">
                         <a href="#abc" class="nav-link link-primary" data-bs-toggle="collapse">
-                            <i class="fas fa-chart-bar"></i>
-                            Employee manager
+                            <i class="fas fa-cart-shopping"></i>
+                            Booking office manager
                         </a>
                     </li>
-                    <div id="abc" class="">
+                    <div id="bookingmenu">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item border-bottom-0 bg-light">
-                                <a href="${pageContext.request.contextPath}/list-emp" class="ms-3 nav-link link-primary">
+                                <a href="${pageContext.request.contextPath}/BookingList" class="ms-3 nav-link link-primary">
                                     <i class="fas fa-list"></i>
-                                    Employee list
+                                    Booking office list
                                 </a>
                             </li>
                             <li class="list-group-item border-bottom bg-light">
-                                <a href="${pageContext.request.contextPath}/add-emp" class="ms-3 nav-link link-primary">
+                                <a href="${pageContext.request.contextPath}/AddBooking" class="ms-3 nav-link link-primary">
                                     <i class="fas fa-plus"></i>
-                                    Add Employee
+                                    Add booking office
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <li class="list-group-item border-bottom bg-light">
+                        <a href="#abc" class="nav-link link-primary" data-bs-toggle="collapse">
+                            <i class="fas fa-car"></i>
+                            Car manager
+                        </a>
+                    </li>
+                    <div id="carmenu">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item border-bottom-0 bg-light">
+                                <a href="${pageContext.request.contextPath}/#" class="ms-3 nav-link link-primary">
+                                    <i class="fas fa-list"></i>
+                                    Car list
+                                </a>
+                            </li>
+                            <li class="list-group-item border-bottom bg-light">
+                                <a href="${pageContext.request.contextPath}/#" class="ms-3 nav-link link-primary">
+                                    <i class="fas fa-plus"></i>
+                                    Add Car
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <li class="list-group-item border-bottom bg-light">
+                        <a href="#abc" class="nav-link link-primary" data-bs-toggle="collapse">
+                            <i class="fas fa-chart-bar"></i>
+                            Parking lot manager
+                        </a>
+                    </li>
+                    <div id="parkingmenu">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item border-bottom-0 bg-light">
+                                <a href="${pageContext.request.contextPath}/listParkingLot" class="ms-3 nav-link link-primary">
+                                    <i class="fas fa-list"></i>
+                                    Parking lot list
+                                </a>
+                            </li>
+                            <li class="list-group-item border-bottom bg-light">
+                                <a href="${pageContext.request.contextPath}/addParkingLot" class="ms-3 nav-link link-primary">
+                                    <i class="fas fa-plus"></i>
+                                    Add parking lot
                                 </a>
                             </li>
                         </ul>
@@ -81,7 +125,7 @@
         <!--CONTENT-->
         <div class="col-10 px-0">
             <div class="pt-5 ps-5 pe-5">
-                <p class="h2 fw-normal mb-3">Welcome to Employee Management</p>
+                <p class="h2 fw-normal mb-3">Welcome to Parking Management</p>
                 <hr>
             </div>
 
