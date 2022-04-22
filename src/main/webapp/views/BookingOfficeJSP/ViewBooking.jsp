@@ -101,7 +101,7 @@
                                 </label>
                             </div>
                             <div class="col-5">
-                                <input type="text" class="form-control" id="txtDestination" name="name"
+                                <input type="text" class="form-control" id="txtDestination" name="name" required
                                        value="${e.officeName}" placeholder="${e.officeName}">
                             </div>
                         </div>
@@ -128,7 +128,7 @@
                                 </label>
                             </div>
                             <div class="col-5">
-                                <input type="tel" pattern="[0]{1}[0-9]{9}" class="form-control" id="txtDriver" name="phone"
+                                <input type="tel" pattern="[0]{1}[0-9]{9}" class="form-control" id="txtDriver" required name="phone"
                                        value="${e.officePhone}" placeholder="${e.officePhone}">
                             </div>
                         </div>
@@ -156,7 +156,7 @@
                             </div>
                             <div class="col-5">
                                 <input type="text" class="form-control" id="txtMaximumTickerNumber"
-                                       name="price" value="${e.officePrice}" placeholder="${e.officePrice}">
+                                       name="price" required value="${e.officePrice}" placeholder="${e.officePrice}">
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -167,7 +167,7 @@
                                 </label>
                             </div>
                             <div class="col-5">
-                                <input type="date" class="form-control" name="dateFrom" id="txtDepartureDate"
+                                <input type="date" class="form-control" name="dateFrom" required id="txtDepartureDate"
                                        value="${e.startContractDeadline}" placeholder="${e.startContractDeadline}"><br>
                             </div>
                         </div>
@@ -179,7 +179,7 @@
                                 </label>
                             </div>
                             <div class="col-5">
-                                <input type="date" class="form-control" name="dateTo" id="txtDepartureDate2"
+                                <input type="date" class="form-control" name="dateTo" required id="txtDepartureDate2"
                                        value="${e.endContractDeadline}" placeholder="${e.endContractDeadline}"><br>
                             </div>
                         </div>

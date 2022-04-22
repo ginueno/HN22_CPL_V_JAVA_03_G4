@@ -99,7 +99,7 @@
                                 </label>
                             </div>
                             <div class="col-5">
-                                <input type="text" class="form-control" id="txtDestination" name="name"
+                                <input type="text" class="form-control" id="txtDestination" required name="name"
                                        placeholder="Enter name">
                             </div>
                         </div>
@@ -126,7 +126,7 @@
                                 </label>
                             </div>
                             <div class="col-5">
-                                <input type="tel" pattern="[0]{1}[0-9]{9}" class="form-control" id="txtDriver" name="phone"
+                                <input type="tel" pattern="[0]{1}[0-9]{9}" class="form-control" id="txtDriver" required name="phone"
                                        placeholder="Enter phone">
                             </div>
                         </div>
@@ -153,7 +153,7 @@
                                 </label>
                             </div>
                             <div class="col-5">
-                                <input type="text" class="form-control" id="txtMaximumTickerNumber"
+                                <input type="text" class="form-control" required id="txtMaximumTickerNumber"
                                        name="price" placeholder="0">
                             </div>
                         </div>
@@ -165,7 +165,7 @@
                                 </label>
                             </div>
                             <div class="col-5">
-                                <input type="date" class="form-control" name="dateFrom" id="txtDepartureDate"><br>
+                                <input type="date" class="form-control" name="dateFrom" required id="txtDepartureDate"><br>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -176,7 +176,7 @@
                                 </label>
                             </div>
                             <div class="col-5">
-                                <input type="date" class="form-control" name="dateTo" id="txtDepartureDate2"><br>
+                                <input type="date" class="form-control" name="dateTo" required id="txtDepartureDate2"><br>
                             </div>
                         </div>
                         <div class="row mb-3">
