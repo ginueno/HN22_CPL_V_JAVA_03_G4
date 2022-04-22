@@ -103,7 +103,7 @@
                                     </span>
                                     <span>
                                     <a href="${pageContext.request.contextPath}/deleteParkingLot?id=${item.parkId}"
-                                       class="text-decoration-none"><i class="fas fa-trash-alt"></i> Delete</a>
+                                       class="text-decoration-none" onclick="return confirm('Are you sure to delete ${item.parkName} ?')"><i class="fas fa-trash-alt"></i> Delete</a>
                                     </span>
                                 </td>
                             </tr>
