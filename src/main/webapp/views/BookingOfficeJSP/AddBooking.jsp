@@ -126,7 +126,7 @@
                                 </label>
                             </div>
                             <div class="col-5">
-                                <input type="text" class="form-control" id="txtDriver" name="phone"
+                                <input type="tel" pattern="[0]{1}[0-9]{9}" class="form-control" id="txtDriver" name="phone"
                                        placeholder="Enter phone">
                             </div>
                         </div>

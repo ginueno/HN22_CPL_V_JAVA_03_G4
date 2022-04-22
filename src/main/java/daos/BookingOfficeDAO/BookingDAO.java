@@ -1,11 +1,10 @@
 package daos.BookingOfficeDAO;
 
-import daos.ParkingLotDAO.ParkingLotDAOCons;
+
 import entities.BookingOffice;
 import entities.ParkingLot;
 import entities.Trip;
 import utils.DBUtils;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

@@ -128,7 +128,7 @@
                                 </label>
                             </div>
                             <div class="col-5">
-                                <input type="text" class="form-control" id="txtDriver" name="phone"
+                                <input type="tel" pattern="[0]{1}[0-9]{9}" class="form-control" id="txtDriver" name="phone"
                                        value="${e.officePhone}" placeholder="${e.officePhone}">
                             </div>
                         </div>
@@ -185,7 +185,7 @@
                         </div>
                         <button type="submit" class="btn btn-success"><i class="fas fa-plus"></i>
                             Update</button>
-                    <a href="DeleteBooking?id=${e.officeId}" class="btn btn-danger" role="button" title="Delete" data-toggle="tooltip"><i class="material-icons"><i class="fas fa-redo"></i> Delete </i></a>
+                    <a href="DeleteBooking?id=${e.officeId}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item')" role="button" title="Delete" data-toggle="tooltip"><i class="material-icons"><i class="fas fa-redo"></i> Delete </i></a>
 
                     </form>
                     <!--END CODE HERE-->
@@ -196,10 +196,6 @@
     </div>
 </div>
 
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
 </body>
 
 </html>
