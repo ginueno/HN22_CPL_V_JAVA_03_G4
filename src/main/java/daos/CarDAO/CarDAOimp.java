@@ -1,7 +1,6 @@
 package daos.CarDAO;
 
 import entities.Car;
-import utils.Constants;
 import utils.DBUtils;
 
 import java.sql.Connection;
@@ -21,7 +20,7 @@ public class CarDAOimp implements CarDAO {
         List<Car> list = new ArrayList<>();
         try {
             conn = DBUtils.getInstance().getConnection();
-            ps = conn.prepareStatement(Constants.CAR_GET_ALL);
+            ps = conn.prepareStatement(CarDAOConstants.CAR_GET_ALL);
             rs = ps.executeQuery();
             while (rs.next()){
                 Car c = Car.builder()
@@ -44,7 +43,7 @@ public class CarDAOimp implements CarDAO {
     public boolean add(Car c) throws SQLException {
         try {
             conn = DBUtils.getInstance().getConnection();
-            ps = conn.prepareStatement(Constants.CAR_ADD);
+            ps = conn.prepareStatement(CarDAOConstants.CAR_ADD);
             ps.setString(1,c.getLicensePlate());
             ps.setString(2,c.getCarColor());
             ps.setString(3, c.getCarType());
@@ -63,7 +62,7 @@ public class CarDAOimp implements CarDAO {
     public boolean update(Car car) throws SQLException {
         try {
             conn = DBUtils.getInstance().getConnection();
-            ps = conn.prepareStatement(Constants.CAR_UPDATE);
+            ps = conn.prepareStatement(CarDAOConstants.CAR_UPDATE);
             ps.setString(1, car.getCarColor());
             ps.setString(2, car.getCarType());
             ps.setInt(3, car.getCompany());
@@ -82,7 +81,7 @@ public class CarDAOimp implements CarDAO {
     public boolean delete(String licensePlate) throws SQLException {
         try {
             conn = DBUtils.getInstance().getConnection();
-            ps = conn.prepareStatement(Constants.CAR_DELETE);
+            ps = conn.prepareStatement(CarDAOConstants.CAR_DELETE);
             ps.setString(1, licensePlate);
             int result = ps.executeUpdate();
             if (result > 0) return true;
@@ -97,7 +96,7 @@ public class CarDAOimp implements CarDAO {
     public Car getCarByLicensePlate(String licensePlate) throws SQLException {
         try {
             conn = DBUtils.getInstance().getConnection();
-            ps = conn.prepareStatement(Constants.CAR_SELECT_BY_LICENSE_PLATE);
+            ps = conn.prepareStatement(CarDAOConstants.CAR_SELECT_BY_LICENSE_PLATE);
             ps.setString(1, licensePlate);
             rs = ps.executeQuery();
             while (rs.next()) return Car.builder()
@@ -119,9 +118,9 @@ public class CarDAOimp implements CarDAO {
         List<Car> list = new ArrayList<>();
         try {
             conn = DBUtils.getInstance().getConnection();
-            if(criteria.equals("licensePlate")) ps = conn.prepareStatement(Constants.GET_BY_LICENSE_PLATE);
-            if(criteria.equals("carColor")) ps = conn.prepareStatement(Constants.GET_BY_CAR_COLOR);
-            if(criteria.equals("carType")) ps = conn.prepareStatement(Constants.GET_BY_CAR_TYPE);
+            if(criteria.equals("licensePlate")) ps = conn.prepareStatement(CarDAOConstants.GET_BY_LICENSE_PLATE);
+            if(criteria.equals("carColor")) ps = conn.prepareStatement(CarDAOConstants.GET_BY_CAR_COLOR);
+            if(criteria.equals("carType")) ps = conn.prepareStatement(CarDAOConstants.GET_BY_CAR_TYPE);
             ps.setString(1,search);
             rs = ps.executeQuery();
             while (rs.next()) {
@@ -145,7 +144,7 @@ public class CarDAOimp implements CarDAO {
     public List<String> getAllParkId() throws SQLException {
         try {
             conn = DBUtils.getInstance().getConnection();
-            ps = conn.prepareStatement(Constants.GET_ALL_PARK_ID);
+            ps = conn.prepareStatement(CarDAOConstants.GET_ALL_PARK_ID);
             rs = ps.executeQuery();
             List<String> list = new ArrayList<>();
             while (rs.next()) {
@@ -179,7 +178,7 @@ public class CarDAOimp implements CarDAO {
         int count = 0;
         try {
             conn = DBUtils.getInstance().getConnection();
-            ps = conn.prepareStatement(Constants.GET_NUMBER_OF_CARS);
+            ps = conn.prepareStatement(CarDAOConstants.GET_NUMBER_OF_CARS);
             rs = ps.executeQuery();
             while (rs.next()) {
                 count = rs.getInt(1);
@@ -196,8 +195,8 @@ public class CarDAOimp implements CarDAO {
         List<Car> list = new ArrayList<>();
         try {
             conn = DBUtils.getInstance().getConnection();
-            ps = conn.prepareStatement(Constants.PAGING_CAR);
-            ps.setInt(1,(index-1)*Constants.PAGE_SIZE_CAR);
+            ps = conn.prepareStatement(CarDAOConstants.PAGING_CAR);
+            ps.setInt(1,(index-1)*CarDAOConstants.PAGE_SIZE_CAR);
             rs = ps.executeQuery();
             while (rs.next()){
                 Car c = Car.builder()
@@ -216,17 +215,17 @@ public class CarDAOimp implements CarDAO {
     }
 
 
-    public static void main(String[] args) {
-        CarDAOimp c = new CarDAOimp();
-        try {
+//    public static void main(String[] args) {
+//        CarDAOimp c = new CarDAOimp();
+//        try {
 //            System.out.println(c.getAll().toString());
 //            System.out.println(c.getNumberOfCars());
-            List<Car> list = c.pagingCar(5);
-            for(Car car : list){
-                System.out.println(car.toString());
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+//            List<Car> list = c.pagingCar(5);
+//            for(Car car : list){
+//                System.out.println(car.toString());
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//    }
 }

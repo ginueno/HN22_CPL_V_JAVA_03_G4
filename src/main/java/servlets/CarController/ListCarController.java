@@ -1,9 +1,9 @@
 package servlets.CarController;
 
 import daos.CarDAO.CarDAO;
+import daos.CarDAO.CarDAOConstants;
 import daos.CarDAO.CarDAOimp;
 import entities.Car;
-import utils.Constants;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,7 +28,7 @@ public class ListCarController extends HttpServlet {
             }
             int index = Integer.parseInt(indexPage);
             int numberOfCars = carDAO.getNumberOfCars();
-            int pageSize = Constants.PAGE_SIZE_CAR;
+            int pageSize = CarDAOConstants.PAGE_SIZE_CAR;
             int endPage = numberOfCars / pageSize;
             if(numberOfCars % pageSize != 0){
                 endPage++;
