@@ -11,4 +11,6 @@ public interface iTripDAO {
     Trip getTripByTripId(String tripId) throws SQLException;
     boolean updateTrip(Trip trip) throws SQLException;
     boolean removeTripByTripId(String tripId) throws SQLException;
+    String getDestinationByTripId(String tripId) throws SQLException;
+    boolean updateBookedTicketByTripId(String tripId, int number) throws SQLException;
 }

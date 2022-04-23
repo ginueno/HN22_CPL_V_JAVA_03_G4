@@ -12,7 +12,9 @@ public interface iTicketDAO {
 
     Ticket getTicketByTicketId(String ticketId) throws SQLException;
 
-    boolean updateTicket(Ticket ticket) throws SQLException;
+//    boolean updateTicket(Ticket ticket) throws SQLException;
 
     boolean removeTicketByTicketId(String ticketId) throws SQLException;
+
+    String getTripIdByTicketId(String ticketId) throws SQLException;
 }

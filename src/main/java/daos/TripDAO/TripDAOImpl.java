@@ -110,11 +110,33 @@ public class TripDAOImpl implements iTripDAO {
         }
     }
 
+    @Override
+    public String getDestinationByTripId(String tripId) throws SQLException {
+        try(Connection connection = DBUtils.getInstance().getConnection();
+        PreparedStatement pstm = connection.prepareStatement(TripDAOCons.TRIP_QUERY_GET_DESTINATION_BY_TRIPID)){
+            pstm.setString(1,tripId);
+            ResultSet rs = pstm.executeQuery();
+            if (rs.next()){
+                return rs.getString("destination");
+            }else{
+                return null;
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+            throw new SQLException();
+        }
+    }
+
+    @Override
+    public boolean updateBookedTicketByTripId(String tripId, int number) throws SQLException {
+        return false;
+    }
+
     public static void main(String[] args) {
         iTripDAO tripDAO = new TripDAOImpl();
         try {
-            Trip trip = tripDAO.getTripByTripId("99");
-            System.out.println(trip);
+//            Trip trip = tripDAO.getTripByTripId("99");
+            System.out.println(tripDAO.getDestinationByTripId("8"));
         } catch (SQLException e) {
             e.printStackTrace();
         }
