@@ -1,10 +1,12 @@
 package daos.BookingOfficeDAO;
 
-import entities.BookingOffice;
-import entities.Trip;
 
-import java.sql.Date;
-import java.sql.SQLException;
+import entities.BookingOffice;
+import entities.ParkingLot;
+import entities.Trip;
+import utils.DBUtils;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public interface BookingDAO {
@@ -21,5 +23,8 @@ public interface BookingDAO {
     void updateBooking(Date end,String name,String phone,String place,Double price,Date start,int tripId,int id) throws SQLException;
 
     void deleteBooking(int id) throws SQLException;
+
+    List<BookingOffice> searchBooking(String keyword, String criteria) throws SQLException;
+
 
 }

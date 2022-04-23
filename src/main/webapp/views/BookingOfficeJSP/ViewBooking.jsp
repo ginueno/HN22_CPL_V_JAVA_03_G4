@@ -35,6 +35,7 @@
 
             <div class="pt-5 ps-5 pe-5">
                 <div>
+
                     <!--ADD CODE HERE-->
 
                     <form action="UpdateBooking" method="post">
@@ -47,7 +48,7 @@
                                 </label>
                             </div>
                             <div class="col-5">
-                                <input type="text" class="form-control" id="txtDestination" name="name"
+                                <input type="text" class="form-control" id="txtDestination" name="name" required
                                        value="${e.officeName}" placeholder="${e.officeName}">
                             </div>
                         </div>
@@ -74,7 +75,7 @@
                                 </label>
                             </div>
                             <div class="col-5">
-                                <input type="text" class="form-control" id="txtDriver" name="phone"
+                                <input type="tel" pattern="[0]{1}[0-9]{9}" class="form-control" id="txtDriver" required name="phone"
                                        value="${e.officePhone}" placeholder="${e.officePhone}">
                             </div>
                         </div>
@@ -102,7 +103,7 @@
                             </div>
                             <div class="col-5">
                                 <input type="text" class="form-control" id="txtMaximumTickerNumber"
-                                       name="price" value="${e.officePrice}" placeholder="${e.officePrice}">
+                                       name="price" required value="${e.officePrice}" placeholder="${e.officePrice}">
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -113,7 +114,7 @@
                                 </label>
                             </div>
                             <div class="col-5">
-                                <input type="date" class="form-control" name="dateFrom" id="txtDepartureDate"
+                                <input type="date" class="form-control" name="dateFrom" required id="txtDepartureDate"
                                        value="${e.startContractDeadline}" placeholder="${e.startContractDeadline}"><br>
                             </div>
                         </div>
@@ -125,13 +126,13 @@
                                 </label>
                             </div>
                             <div class="col-5">
-                                <input type="date" class="form-control" name="dateTo" id="txtDepartureDate2"
+                                <input type="date" class="form-control" name="dateTo" required id="txtDepartureDate2"
                                        value="${e.endContractDeadline}" placeholder="${e.endContractDeadline}"><br>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-success"><i class="fas fa-plus"></i>
                             Update</button>
-                    <a href="DeleteBooking?id=${e.officeId}" class="btn btn-danger" role="button" title="Delete" data-toggle="tooltip"><i class="material-icons"><i class="fas fa-redo"></i> Delete </i></a>
+                    <a href="DeleteBooking?id=${e.officeId}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item')" role="button" title="Delete" data-toggle="tooltip"><i class="material-icons"><i class="fas fa-redo"></i> Delete </i></a>
 
                     </form>
                     <!--END CODE HERE-->
@@ -142,10 +143,6 @@
     </div>
 </div>
 
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -35,6 +35,45 @@
 
             <div class="pt-5 ps-5 pe-5">
                 <div>
+                    <form class="form-inline" action="SearchBooking" method="get">
+                        <div class="row">
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-4">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa-solid fa-magnifying-glass"></i><br>
+                                        </span>
+                                    </div>
+                                    <input type="text" id="search" name="keyword" class="form-control"
+                                           value="${keyword}" placeholder="Parking lot search">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa-solid fa-filter"></i>&nbsp; Filter by
+                                        </span>
+                                    </div>
+                                    <select class="form-select" id="criteria" name="criteria">
+                                        <option value="id" ${criteria=="id" ? 'selected':''}>Id</option>
+                                        <option value="name" ${criteria=="name" ? 'selected':''}>name</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-1">
+                                <button type="submit" class="btn btn-primary">
+                                    Search
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="pt-5 ps-5 pe-5">
+                <div>
                     <!--ADD CODE HERE-->
                     <table class="table">
                         <thead class="thead-dark">
