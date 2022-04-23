@@ -10,9 +10,9 @@ import lombok.ToString;
 @ToString
 @Builder
 public class Car {
-    public String licensePlate;
-    public String carColor;
-    public String carType;
-    public int company;
-    public int parkId;
+    private String licensePlate;
+    private String carColor;
+    private String carType;
+    private int company;
+    private int parkId;
 }
