@@ -72,16 +72,29 @@ public class TicketDAOImpl implements iTicketDAO{
             throw new SQLException();
         }
     }
+//
+//    @Override
+//    public boolean updateTicket(Ticket ticket) throws SQLException {
+//        try(Connection connection = DBUtils.getInstance().getConnection();
+//            PreparedStatement pstm = connection.prepareStatement(TicketDAOCons.TICKET_QUERY_UPDATE)){
+//            pstm.setTime(1,DateUtils.convertJavaDateToSQLTime(ticket.getBookingTime()));
+//            pstm.setString(2, ticket.getCustomerName());
+//            pstm.setString(3,ticket.getLicensePlate());
+//            pstm.setInt(4,ticket.getTripId());
+//            pstm.setInt(5,ticket.getTicketId());
+//            int n = pstm.executeUpdate();
+//            return n > 0;
+//        }catch (SQLException e){
+//            e.printStackTrace();
+//            throw new SQLException();
+//        }
+//    }
 
     @Override
-    public boolean updateTicket(Ticket ticket) throws SQLException {
+    public boolean removeTicketByTicketId(String ticketId) throws SQLException {
         try(Connection connection = DBUtils.getInstance().getConnection();
-            PreparedStatement pstm = connection.prepareStatement(TicketDAOCons.TICKET_QUERY_UPDATE)){
-            pstm.setTime(1,DateUtils.convertJavaDateToSQLTime(ticket.getBookingTime()));
-            pstm.setString(2, ticket.getCustomerName());
-            pstm.setString(3,ticket.getLicensePlate());
-            pstm.setInt(4,ticket.getTripId());
-            pstm.setInt(5,ticket.getTicketId());
+            PreparedStatement pstm = connection.prepareStatement(TicketDAOCons.TICKET_QUERY_REMOVE_BY_TICKETID)){
+            pstm.setString(1,ticketId);
             int n = pstm.executeUpdate();
             return n > 0;
         }catch (SQLException e){
@@ -91,12 +104,16 @@ public class TicketDAOImpl implements iTicketDAO{
     }
 
     @Override
-    public boolean removeTicketByTicketId(String ticketId) throws SQLException {
+    public String getTripIdByTicketId(String ticketId) throws SQLException {
         try(Connection connection = DBUtils.getInstance().getConnection();
-            PreparedStatement pstm = connection.prepareStatement(TicketDAOCons.TICKET_QUERY_REMOVE_BY_TICKETID)){
+        PreparedStatement pstm = connection.prepareStatement(TicketDAOCons.TICKET_QUERY_GET_TRIPID_BY_TICKETID)){
             pstm.setString(1,ticketId);
-            int n = pstm.executeUpdate();
-            return n > 0;
+            ResultSet rs = pstm.executeQuery();
+            if (rs.next()){
+                return rs.getString("tripId");
+            }else{
+                return null;
+            }
         }catch (SQLException e){
             e.printStackTrace();
             throw new SQLException();
