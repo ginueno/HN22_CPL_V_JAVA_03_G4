@@ -93,7 +93,7 @@
                                 <td>${item.parkId}</td>
                                 <td>${item.parkName}</td>
                                 <td>${item.parkPlace}</td>
-                                <td>${item.parkArea}</td>
+                                <td><fmt:formatNumber type = "number"  groupingUsed = "false" value = "${item.parkArea}" /></td>
                                 <td><fmt:formatNumber type = "number"  groupingUsed = "false" value = "${item.parkPrice}" /></td>
                                 <td>${item.parkStatus}</td>
                                 <td>
@@ -103,7 +103,7 @@
                                     </span>
                                     <span>
                                     <a href="${pageContext.request.contextPath}/deleteParkingLot?id=${item.parkId}"
-                                       class="text-decoration-none"><i class="fas fa-trash-alt"></i> Delete</a>
+                                       class="text-decoration-none" onclick="return confirm('Are you sure to delete ${item.parkName} ?')"><i class="fas fa-trash-alt"></i> Delete</a>
                                     </span>
                                 </td>
                             </tr>
@@ -113,9 +113,22 @@
                     <!--END CODE HERE-->
                 </div>
             </div>
+            <div class="row ">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
+
         <!--END CONTENT-->
     </div>
+
 </div>
 
 
