@@ -20,4 +20,5 @@ public class Constants {
             "sex = ? \n" +
             "WHERE employeeId = ?";
     public static String EMPLOYEE_DELETE = "DELETE FROM employee WHERE employeeId = ?";
+    public static String EMPLOYEE_LOGIN = "SELECT * FROM employee WHERE account = ? and password = ?";
 }

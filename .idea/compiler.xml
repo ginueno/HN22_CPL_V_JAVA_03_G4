@@ -8,7 +8,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="HN22_CPL_V_JAVA_03_G4" />
-        <module name="WebApp" />
       </profile>
     </annotationProcessing>
   </component>

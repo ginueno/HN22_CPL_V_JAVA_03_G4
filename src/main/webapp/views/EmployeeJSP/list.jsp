@@ -29,12 +29,12 @@
         </div>
         <div class="col-10 px-0">
             <div class="nav-link bg-light d-flex flex-row-reverse border-bottom">
-                <a class="nav-link link-primary text-decoration-none" href="#">
+                <a class="nav-link link-primary text-decoration-none" href="${pageContext.request.contextPath}/logout">
                     <i class="fas fa-sign-out-alt"></i>
                     Logout
                 </a>
                 <a class="nav-link link-primary text-decoration-none me-4" href="#">
-                    Welcome %name%
+                    Welcome ${loginEmp.account}
                 </a>
             </div>
         </div>
@@ -109,7 +109,7 @@
                                             <i class="fa-solid fa-filter"></i>&nbsp; Filter by
                                         </span>
                                     </div>
-                                    <select class="form-control" id="criteria" name="criteria">
+                                    <select class="form-select" id="criteria" name="criteria">
                                         <option value="name" ${criteria=="name" ? 'selected':''}>Name</option>
                                         <option value="address" ${criteria=="address" ? 'selected':''}>Address</option>
                                         <option value="phone" ${criteria=="phone" ? 'selected':''}>Phone</option>
