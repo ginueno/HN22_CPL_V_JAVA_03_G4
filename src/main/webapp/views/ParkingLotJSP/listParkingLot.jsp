@@ -19,7 +19,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
-    <title>Parking Lot</title>
+    <title>Parking Lot List</title>
 </head>
 
 <body>
@@ -38,7 +38,7 @@
                 <hr>
             </div>
 
-            <div class="pt-5 ps-5 pe-5">
+            <div class="pt-3 ps-5 pe-5">
                 <!--SEARCH HERE-->
                 <div>
                     <form class="form-inline" action="${pageContext.request.contextPath}/searchParkingLot" method="get">

@@ -57,7 +57,6 @@ public class TripSearchController extends HttpServlet {
             e.printStackTrace();
         } catch (ParseException e) {
             e.printStackTrace();
-
         }
     }
 }

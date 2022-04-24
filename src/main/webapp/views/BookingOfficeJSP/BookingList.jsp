@@ -20,7 +20,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
-    <title>Home 2</title>
+    <title>Booking Office List</title>
 </head>
 
 <body>
@@ -37,16 +37,15 @@
         <!--CONTENT-->
         <div class="col-10 px-0">
             <div class="pt-5 ps-5 pe-5">
-                <p class="h2 fw-normal mb-3">Booking List</p>
+                <p class="h2 fw-normal mb-3">Booking office list</p>
                 <hr>
             </div>
 
-            <div class="pt-5 ps-5 pe-5">
+            <div class="pt-3 ps-5 pe-5">
                 <div>
                     <form class="form-inline" action="SearchBooking" method="get">
-                        <div class="row">
-                            <div class="col-sm-4"></div>
-                            <div class="col-sm-4">
+                        <div class="row justify-content-end">
+                            <div class="col-sm-4 pe-0">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">
@@ -57,7 +56,7 @@
                                            value="${keyword}" placeholder="Parking lot search">
                                 </div>
                             </div>
-                            <div class="col-sm-3">
+                            <div class="col-sm-3 pe-0">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">
@@ -70,18 +69,18 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-1">
-                                <button type="submit" class="btn btn-primary">
+                            <div class="col-sm-1 pe-0 pe-lg-3 pb-3">
+                                <button type="submit" class="btn btn-info text-white w-100">
                                     Search
                                 </button>
                             </div>
                         </div>
                     </form>
-                </div>
-            </div>
+<%--                </div>--%>
+<%--            </div>--%>
 
-            <div class="pt-5 ps-5 pe-5">
-                <div>
+<%--            <div class="pt-5 ps-5 pe-5">--%>
+<%--                <div>--%>
                     <!--ADD CODE HERE-->
                     <table class="table table-striped table-bordered" id="myTable">
                         <thead class="thead-dark">

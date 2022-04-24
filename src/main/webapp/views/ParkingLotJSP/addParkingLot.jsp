@@ -14,7 +14,7 @@
     <%--    <link rel="stylesheet" type="text/css" href="css/styles.css"/>--%>
     <script src="https://kit.fontawesome.com/32b1007cf0.js" crossorigin="anonymous"></script>
 
-    <title>Parking Lot</title>
+    <title>Parking Lot Add</title>
 </head>
 
 <body>

@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="css/styles.css"/>
     <script src="https://kit.fontawesome.com/32b1007cf0.js" crossorigin="anonymous"></script>
     <script src="views/CarJSP/validateCar.js"></script>
-    <title>Update car</title>
+    <title>Car Update</title>
 </head>
 
 <body>
@@ -28,7 +28,7 @@
         <!--CONTENT-->
         <div class="col-10 px-0">
             <div class="pt-5 ps-5 pe-5">
-                <p class="h2 fw-normal mb-3">Car update</p>
+                <p class="h2 fw-normal mb-3">Car Update</p>
                 <hr>
             </div>
 

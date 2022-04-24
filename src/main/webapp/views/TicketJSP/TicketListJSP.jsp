@@ -41,7 +41,7 @@
                 <hr>
             </div>
 
-            <div class="pt-5 ps-5 pe-5">
+            <div class="pt-3 ps-5 pe-5">
                 <div class="">
                     <!--ADD CODE HERE-->
                     <!--SEARCH FORM-->
@@ -146,7 +146,7 @@
                     <!--END SEARCH FORM-->
                     <c:choose>
                         <c:when test="${requestScope.ticketList.size() != 0}">
-                            <table class="table table-sticketed table-bordered" id="myTable">
+                            <table class="table table-striped table-bordered" id="myTable">
                                 <thead class="bg-light border-bottom-0">
                                 <tr>
                                     <th scope="col" style="width: 5%">No</th>

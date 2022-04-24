@@ -12,7 +12,7 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/styles.css"/>
     <script src="https://kit.fontawesome.com/32b1007cf0.js" crossorigin="anonymous"></script>
-    <title>Home 2</title>
+    <title>Booking Office View</title>
 </head>
 
 <body>
@@ -29,7 +29,7 @@
         <!--CONTENT-->
         <div class="col-10 px-0">
             <div class="pt-5 ps-5 pe-5">
-                <p class="h2 fw-normal mb-3">View Booking office</p>
+                <p class="h2 fw-normal mb-3">Booking office view</p>
                 <hr>
             </div>
 

@@ -28,7 +28,8 @@ public class TripDeleteController extends HttpServlet {
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
-                //SANG TRANG ERROR
+                req.setAttribute("message", "Delete " + TripDAOCons.FAIL);
+                req.getRequestDispatcher("/trip-list").include(req, resp);
             }
         } else {
             req.setAttribute("message", "Delete " + TripDAOCons.FAIL + " cause there is no param!");

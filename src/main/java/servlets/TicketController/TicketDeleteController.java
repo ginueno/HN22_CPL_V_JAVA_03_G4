@@ -1,5 +1,6 @@
 package servlets.TicketController;
 
+import com.microsoft.sqlserver.jdbc.SQLServerException;
 import daos.CarDAO.CarDAO;
 import daos.CarDAO.CarDAOimp;
 import daos.TicketDAO.TicketDAOCons;
@@ -41,6 +42,7 @@ public class TicketDeleteController extends HttpServlet {
             } catch (SQLException e) {
                 e.printStackTrace();
                 //ERROR
+                req.setAttribute("message", TicketDAOCons.FAIL);
             }
         }
         req.getRequestDispatcher("/ticket-list").include(req, resp);

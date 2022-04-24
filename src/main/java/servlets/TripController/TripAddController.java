@@ -51,7 +51,7 @@ public class TripAddController extends HttpServlet {
             }
         } catch (SQLException | ParseException e) {
             e.printStackTrace();
-            String message = "Some errors occurs";
+            String message = "Database connection error";
             req.setAttribute("message", message);
             req.getRequestDispatcher("views/TripJSP/TripAddJSP.jsp").forward(req, resp);
         }

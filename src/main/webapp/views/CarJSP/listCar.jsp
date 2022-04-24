@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="css/styles.css"/>
     <script src="https://kit.fontawesome.com/32b1007cf0.js" crossorigin="anonymous"></script>
     <script src="views/CarJSP/validateCar.js"></script>
-    <title>List Car</title>
+    <title>Car List</title>
 </head>
 
 <body>
@@ -31,55 +31,51 @@
                 <p class="h2 fw-normal mb-3">Car list</p>
                 <hr>
             </div>
-
-            <!--Serch-->
-            <div>
-                <form class="form-inline" action="${pageContext.request.contextPath}/searchCar" method="get">
-                    <div class="row">
-                        <div class="col-sm-4"></div>
-                        <div class="col-sm-4">
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
+            <div class="pt-3 ps-5 pe-5">
+                <%--Phan trang--%>
+                <!--Serch-->
+                <div class="">
+                    <form class="form-inline" action="${pageContext.request.contextPath}/searchCar" method="get">
+                        <div class="row justify-content-end">
+                            <div class="col-sm-4 pe-0">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
                                         <span class="input-group-text">
                                             <i class="fa-solid fa-magnifying-glass"></i><br>
                                         </span>
+                                    </div>
+                                    <input type="text" id="search" name="keyword" class="form-control"
+                                           value="${keyword}" placeholder="Car search">
                                 </div>
-                                <input type="text" id="search" name="keyword" class="form-control"
-                                       value="${keyword}" placeholder="Car search">
                             </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
+                            <div class="col-sm-3 pe-0">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
                                         <span class="input-group-text">
                                             <i class="fa-solid fa-filter"></i>&nbsp; Search by
                                         </span>
+                                    </div>
+                                    <select class="form-select" id="criteria" name="criteria">
+                                        <option value="licensePlate" ${criteria=="licensePlate" ? 'selected':''}>License
+                                            plate
+                                        </option>
+                                        <option value="carColor" ${criteria=="carColor" ? 'selected':''}>Color</option>
+                                        <option value="carType" ${criteria=="carType" ? 'selected':''}>Type</option>
+                                    </select>
                                 </div>
-                                <select class="form-select" id="criteria" name="criteria">
-                                    <option value="licensePlate" ${criteria=="licensePlate" ? 'selected':''}>License
-                                        plate
-                                    </option>
-                                    <option value="carColor" ${criteria=="carColor" ? 'selected':''}>Color</option>
-                                    <option value="carType" ${criteria=="carType" ? 'selected':''}>Type</option>
-                                </select>
+                            </div>
+                            <div class="col-sm-1 pe-0 pe-lg-3 pb-3">
+                                <button type="submit" class="btn btn-info text-white w-100">
+                                    Search
+                                </button>
                             </div>
                         </div>
-                        <div class="col-sm-1">
-                            <button type="submit" class="btn btn-primary">
-                                Search
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+                    </form>
+<%--                </div>--%>
 
-            <!--Serch-->
-
-            <div class="pt-5 ps-5 pe-5">
+                <!--Serch-->
                 <%--Phan trang--%>
-
-                <%--Phan trang--%>
-                <div>
+<%--                <div>--%>
                     <!--ADD CODE HERE-->
                     <table class="table table-striped table-bordered">
                         <thead class="bg-light border-bottom-0">
