@@ -83,25 +83,99 @@
             <div class="pt-5 ps-5 pe-5">
                 <div class="">
                     <!--ADD CODE HERE-->
-                    <form class="form-inline" action="${pageContext.request.contextPath}/search-emp" method="post">
-                        <div class="row">
-                            <div class="col-4"></div>
-                            <div class="col-8">
+                    <!--SEARCH FORM-->
+                    <form class="form-inline" action="${pageContext.request.contextPath}/trip-search" method="post">
+                        <div class="row justify-content-end">
+                            <div class="col-sm-4 pe-0">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            <i class="fa-solid fa-magnifying-glass"></i><br>
-                                        </span>
+                                            <span class="input-group-text">
+                                                <i class="fa-solid fa-magnifying-glass"></i><br>
+                                            </span>
                                     </div>
-                                    <input type="text" id="search" name="search" class="form-control"
-                                           value="${search}" placeholder="User search">
-                                    <button type="submit" class="btn btn-info text-white">
-                                        Search
-                                    </button>
+                                    <input type="text" id="txtSearch" name="txtSearch" class="form-control"
+                                           value="${requestScope.txtSearch != null ? requestScope.txtSearch : "" }" placeholder="User Search">
                                 </div>
+                            </div>
+<%--                            <div class="col-sm-3 pe-0">--%>
+<%--                                <div class="input-group mb-3">--%>
+<%--                                    <div class="input-group-prepend">--%>
+<%--                                        <span class="input-group-text">--%>
+<%--                                            <i class="fa-solid fa-filter"></i>&nbsp; Filter by--%>
+<%--                                        </span>--%>
+<%--                                    </div>--%>
+<%--                                    <select class="form-select" id="searchFilter" name="searchFilter">--%>
+<%--                                        <option value="trip" ${requestScope.searchFilter.equalsIgnoreCase("trip") ? 'selected':''}>Trip</option>--%>
+<%--                                        <option value="licensePlate" ${requestScope.searchFilter.equalsIgnoreCase("licensePlate") ? 'selected':''}>License--%>
+<%--                                            Plate--%>
+<%--                                        </option>--%>
+<%--                                        <option value="customer" ${requestScope.searchFilter.equalsIgnoreCase("customer") ? 'selected':''}>Customer--%>
+<%--                                        </option>--%>
+<%--                                        <option value="bookingTime" ${requestScope.searchFilter.equalsIgnoreCase("bookingTime") ? 'selected':''}>Booking--%>
+<%--                                            Time--%>
+<%--                                        </option>--%>
+<%--                                    </select>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+                            <div class="col-sm-1 pe-0 pe-lg-3 pb-3">
+                                <button type="submit" class="btn btn-info text-white w-100">
+                                    Search
+                                </button>
+                            </div>
+                            <div class="col-sm-1 pe-0 pb-3">
+                                <select class="form-select" name="day">
+                                    <c:forEach begin="1" end="31" var="index">
+                                        <option value="${index}" ${requestScope.day == index ? 'selected' : ''}>
+                                            <c:choose>
+                                                <c:when test="${index < 10}">
+                                                    0${index}
+                                                </c:when>
+                                                <c:otherwise>
+                                                    ${index}
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </option>
+                                    </c:forEach>
+                                </select>
+                            </div>
+                            <div class="col-sm-1 pe-0 pb-3">
+                                <select class="form-select" name="month">
+                                    <c:forEach begin="1" end="12" var="index">
+                                        <option value="${index}" ${requestScope.month == index ? 'selected' : ''}>
+                                            <c:choose>
+                                                <c:when test="${index < 10}">
+                                                    0${index}
+                                                </c:when>
+                                                <c:otherwise>
+                                                    ${index}
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </option>
+                                    </c:forEach>
+                                </select>
+                            </div>
+                            <div class="col-sm-1 pe-0 pb-3">
+                                <select class="form-select" name="year">
+                                    <c:choose>
+                                        <c:when test="${(requestScope.years[0] != requestScope.years[1]) && (requestScope.years[0] < requestScope.years[1])}">
+                                            <c:forEach begin="${requestScope.years[0]}" end="${requestScope.years[1]}"
+                                                       var="index">
+                                                <option value="${index}" ${requestScope.year == index ? 'selected' : ''}>
+                                                        ${index}
+                                                </option>
+                                            </c:forEach>
+                                        </c:when>
+                                        <c:when test="${requestScope.years[0] == requestScope.years[1]}">
+                                            <option value="${requestScope.years[0]}">
+                                                    ${requestScope.years[0]}
+                                            </option>
+                                        </c:when>
+                                    </c:choose>
+                                </select>
                             </div>
                         </div>
                     </form>
+                    <!--END SEARCH FORM-->
                     <c:choose>
                         <c:when test="${requestScope.tripList.size() != 0}">
                             <table class="table table-striped table-bordered">

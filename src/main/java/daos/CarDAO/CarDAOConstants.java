@@ -18,4 +18,5 @@ public class CarDAOConstants {
     public static final String GET_BY_CAR_TYPE = "SELECT * FROM car WHERE carType like '%'+?+'%'";
     public static final String GET_NUMBER_OF_CARS = "SELECT count(licensePlate) FROM car";
     public static final String PAGING_CAR = "SELECT * FROM car ORDER BY licensePlate OFFSET ? ROWS FETCH NEXT " + PAGE_SIZE_CAR + " ROW ONLY;";
+    public static final String CAR_QUERY_GET_ALL_LICENSEPLATE = "SELECT DISTINCT licensePlate FROM car";
 }

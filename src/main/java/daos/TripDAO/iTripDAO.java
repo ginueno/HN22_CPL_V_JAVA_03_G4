@@ -13,4 +13,8 @@ public interface iTripDAO {
     boolean removeTripByTripId(String tripId) throws SQLException;
     String getDestinationByTripId(String tripId) throws SQLException;
     boolean updateBookedTicketByTripId(String tripId, int number) throws SQLException;
+    int[] getMinAndMaxYearFromTrip() throws SQLException;
+    List<Trip> getTripsByDestination(String destination) throws SQLException;
+    List<Trip> getTripsByTextSearch(String textSearch, int day, int month, int year) throws SQLException;
+    List<Trip> getTripsByDepartureDate(int day, int month, int year) throws SQLException;
 }

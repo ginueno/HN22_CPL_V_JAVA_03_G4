@@ -214,6 +214,22 @@ public class CarDAOimp implements CarDAO {
         return list;
     }
 
+    @Override
+    public List<String> getAllLicensePlate() throws SQLException {
+        try(Connection connection = DBUtils.getInstance().getConnection();
+        PreparedStatement pstm = connection.prepareStatement(CarDAOConstants.CAR_QUERY_GET_ALL_LICENSEPLATE)){
+            ResultSet rs = pstm.executeQuery();
+            List<String> licensePlateList = new ArrayList<>();
+            while (rs.next()){
+                licensePlateList.add(rs.getString("licensePlate"));
+            }
+            return licensePlateList;
+        }catch (SQLException e){
+            e.printStackTrace();
+            throw new SQLException();
+        }
+    }
+
 
 //    public static void main(String[] args) {
 //        CarDAOimp c = new CarDAOimp();
