@@ -11,10 +11,11 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BookingDAOimp implements BookingDAO{
+public class BookingDAOimp implements BookingDAO {
     Connection conn = null;
     ResultSet rs = null;
     PreparedStatement ps = null;
+
     @Override
     public List<BookingOffice> getAllBooking() throws SQLException {
         List<BookingOffice> list = new ArrayList<>();
@@ -22,7 +23,7 @@ public class BookingDAOimp implements BookingDAO{
             conn = DBUtils.getInstance().getConnection();
             ps = conn.prepareStatement(BookingSQL.getAllBooking);
             rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 BookingOffice b = BookingOffice.builder()
                         .officeId(rs.getInt(1))
                         .endContractDeadline(rs.getDate(2))
@@ -34,7 +35,7 @@ public class BookingDAOimp implements BookingDAO{
                         .tripId(rs.getInt(8)).build();
                 list.add(b);
             }
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 
@@ -44,16 +45,16 @@ public class BookingDAOimp implements BookingDAO{
     @Override
     public boolean addBooking(Date end, String name, String phone, String place, Double price, Date start, int tripId) {
 
-        try{
+        try {
             conn = DBUtils.getInstance().getConnection();
             ps = conn.prepareStatement(BookingSQL.addBooking);
-            ps.setDate(1,end);
-            ps.setString(2,name);
-            ps.setString(3,phone);
-            ps.setString(4,place);
-            ps.setDouble(5,price);
-            ps.setDate(6,start);
-            ps.setInt(7,tripId);
+            ps.setDate(1, end);
+            ps.setString(2, name);
+            ps.setString(3, phone);
+            ps.setString(4, place);
+            ps.setDouble(5, price);
+            ps.setDate(6, start);
+            ps.setInt(7, tripId);
             int n = ps.executeUpdate();
             if (n > 0) {
                 return true;
@@ -71,12 +72,12 @@ public class BookingDAOimp implements BookingDAO{
             conn = DBUtils.getInstance().getConnection();
             ps = conn.prepareStatement(BookingSQL.listPlace);
             rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 BookingOffice b = BookingOffice.builder()
                         .officePlace(rs.getString(1)).build();
                 list.add(b);
             }
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return list;
@@ -89,14 +90,14 @@ public class BookingDAOimp implements BookingDAO{
             conn = DBUtils.getInstance().getConnection();
             ps = conn.prepareStatement(BookingSQL.listTrip);
             rs = ps.executeQuery();
-            while (rs.next()){
-                Trip t=Trip.builder()
+            while (rs.next()) {
+                Trip t = Trip.builder()
                         .tripId(rs.getInt(1))
                         .destination(rs.getString(2))
                         .build();
                 list.add(t);
             }
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 
@@ -109,9 +110,9 @@ public class BookingDAOimp implements BookingDAO{
         try {
             conn = DBUtils.getInstance().getConnection();
             ps = conn.prepareStatement(BookingSQL.viewBooking);
-            ps.setInt(1,id);
+            ps.setInt(1, id);
             rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 b = BookingOffice.builder()
                         .officeId(rs.getInt(1))
                         .endContractDeadline(rs.getDate(2))
@@ -122,7 +123,7 @@ public class BookingDAOimp implements BookingDAO{
                         .startContractDeadline(rs.getDate(7))
                         .tripId(rs.getInt(8)).build();
             }
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return b;
@@ -130,17 +131,17 @@ public class BookingDAOimp implements BookingDAO{
 
     @Override
     public void updateBooking(Date end, String name, String phone, String place, Double price, Date start, int tripId, int id) throws SQLException {
-        try{
+        try {
             conn = DBUtils.getInstance().getConnection();
             ps = conn.prepareStatement(BookingSQL.updateBooking);
-            ps.setDate(1,end);
-            ps.setString(2,name);
-            ps.setString(3,phone);
-            ps.setString(4,place);
-            ps.setDouble(5,price);
-            ps.setDate(6,start);
-            ps.setInt(7,tripId);
-            ps.setInt(8,id);
+            ps.setDate(1, end);
+            ps.setString(2, name);
+            ps.setString(3, phone);
+            ps.setString(4, place);
+            ps.setDouble(5, price);
+            ps.setDate(6, start);
+            ps.setInt(7, tripId);
+            ps.setInt(8, id);
             ps.executeUpdate();
 
         } catch (SQLException e) {
@@ -150,10 +151,10 @@ public class BookingDAOimp implements BookingDAO{
 
     @Override
     public void deleteBooking(int id) throws SQLException {
-        try{
+        try {
             conn = DBUtils.getInstance().getConnection();
             ps = conn.prepareStatement(BookingSQL.deleteBooking);
-            ps.setInt(1,id);
+            ps.setInt(1, id);
             ps.executeUpdate();
 
         } catch (SQLException e) {
@@ -200,7 +201,7 @@ public class BookingDAOimp implements BookingDAO{
 
     public static void main(String[] args) throws SQLException {
         BookingDAOimp b = new BookingDAOimp();
-        System.out.println(b.searchBooking("h","name"));
+        System.out.println(b.searchBooking("h", "name"));
 
     }
 }

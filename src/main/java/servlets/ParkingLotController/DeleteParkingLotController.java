@@ -16,11 +16,12 @@ import java.util.List;
 public class DeleteParkingLotController extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private ParkingLotDAOImpl lotDAO = new ParkingLotDAOImpl();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
             int id = Integer.parseInt(req.getParameter("id"));
-            boolean check  = lotDAO.deleteParkingLot(id);
+            boolean check = lotDAO.deleteParkingLot(id);
             if (check) {
                 resp.sendRedirect("listParkingLot");
             }

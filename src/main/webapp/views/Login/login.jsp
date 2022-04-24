@@ -27,7 +27,8 @@
                     </div>
                     <input type="text" id="account" name="account" class="form-control mb-3"
                            value="${rememberUsername}" placeholder="Account" required>
-                    <input type="password" id="psw" name="psw" class="form-control mb-3" placeholder="Password" required>
+                    <input type="password" id="psw" name="psw" class="form-control mb-3" placeholder="Password"
+                           required>
                     <div class="form-check mb-3">
                         <input class="form-check-input" type="checkbox" value="yes" id="remember" name="remember"
                         ${rmbCheck=="yes" ? 'checked':''}>

@@ -25,16 +25,16 @@ public class SearchCarController extends HttpServlet {
         try {
             String keyword = req.getParameter("keyword");
             String criteria = req.getParameter("criteria");
-            req.setAttribute("keyword",keyword);
-            req.setAttribute("criteria",criteria);
+            req.setAttribute("keyword", keyword);
+            req.setAttribute("criteria", criteria);
             List<Car> list;
-            if (keyword.equals("")){
-                 list = carDAO.getAll();
-            }else {
-                list = carDAO.search(keyword,criteria) ;
+            if (keyword.equals("")) {
+                list = carDAO.getAll();
+            } else {
+                list = carDAO.search(keyword, criteria);
             }
-            req.setAttribute("listCars",list);
-            req.getRequestDispatcher("views/CarJSP/listCar.jsp").forward(req,resp);
+            req.setAttribute("listCars", list);
+            req.getRequestDispatcher("views/CarJSP/listCar.jsp").forward(req, resp);
         } catch (SQLException e) {
             e.printStackTrace();
         }

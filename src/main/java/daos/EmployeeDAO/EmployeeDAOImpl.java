@@ -142,11 +142,15 @@ public class EmployeeDAOImpl implements iEmployeeDAO {
         Employee employee = null;
         try {
             connection = DBUtils.getInstance().getConnection();
-            if(criteria.equals("name")) preparedStatement = connection.prepareStatement(Constants.EMPLOYEE_GET_BY_NAME);
-            if(criteria.equals("address")) preparedStatement = connection.prepareStatement(Constants.EMPLOYEE_GET_BY_ADDRESS);
-            if(criteria.equals("phone")) preparedStatement = connection.prepareStatement(Constants.EMPLOYEE_GET_BY_PHONE);
-            if(criteria.equals("dept")) preparedStatement = connection.prepareStatement(Constants.EMPLOYEE_GET_BY_DEPARTMENT);
-            preparedStatement.setString(1,search);
+            if (criteria.equals("name"))
+                preparedStatement = connection.prepareStatement(Constants.EMPLOYEE_GET_BY_NAME);
+            if (criteria.equals("address"))
+                preparedStatement = connection.prepareStatement(Constants.EMPLOYEE_GET_BY_ADDRESS);
+            if (criteria.equals("phone"))
+                preparedStatement = connection.prepareStatement(Constants.EMPLOYEE_GET_BY_PHONE);
+            if (criteria.equals("dept"))
+                preparedStatement = connection.prepareStatement(Constants.EMPLOYEE_GET_BY_DEPARTMENT);
+            preparedStatement.setString(1, search);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 employee = Employee.builder()
@@ -173,13 +177,13 @@ public class EmployeeDAOImpl implements iEmployeeDAO {
     @Override
     public Employee logIn(String account, String password) throws SQLException {
         Employee employee = null;
-        try{
+        try {
             connection = DBUtils.getInstance().getConnection();
             preparedStatement = connection.prepareStatement(Constants.EMPLOYEE_LOGIN);
-            preparedStatement.setString(1,account);
-            preparedStatement.setString(2,password);
+            preparedStatement.setString(1, account);
+            preparedStatement.setString(2, password);
             resultSet = preparedStatement.executeQuery();
-            while(resultSet.next()) {
+            while (resultSet.next()) {
                 employee = Employee.builder()
                         .employeeId(resultSet.getInt(1))
                         .account(resultSet.getString(2))
@@ -206,9 +210,9 @@ public class EmployeeDAOImpl implements iEmployeeDAO {
         try {
             connection = DBUtils.getInstance().getConnection();
             preparedStatement = connection.prepareStatement(Constants.EMPLOYEE_FIND_BY_ACCOUNT);
-            preparedStatement.setString(1,account);
+            preparedStatement.setString(1, account);
             resultSet = preparedStatement.executeQuery();
-            if(resultSet.next()) return true;
+            if (resultSet.next()) return true;
             return false;
         } catch (Exception e) {
             e.printStackTrace();

@@ -18,13 +18,14 @@ import java.util.List;
 public class AddBooking extends HttpServlet {
 
     private BookingDAOimp d = new BookingDAOimp();
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         List<BookingOffice> b = d.getAllPlace();
-        request.setAttribute("listB",b);
+        request.setAttribute("listB", b);
         List<Trip> c = d.getAllDestination();
-        request.setAttribute("listC",c);
+        request.setAttribute("listC", c);
         request.getRequestDispatcher("/views/BookingOfficeJSP/AddBooking.jsp").forward(request, response);
 
     }
@@ -68,7 +69,7 @@ public class AddBooking extends HttpServlet {
         Double price = Double.parseDouble(request.getParameter("price"));
         Date from = Date.valueOf(request.getParameter("dateFrom"));
         Date to = Date.valueOf(request.getParameter("dateTo"));
-        d.addBooking(to,name,phone,place,price,from,tripId);
+        d.addBooking(to, name, phone, place, price, from, tripId);
         try {
             processRequest(request, response);
         } catch (SQLException e) {

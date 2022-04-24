@@ -22,8 +22,8 @@ public class SearchController extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String search = req.getParameter("search");
         String criteria = req.getParameter("criteria");
-        req.setAttribute("search",search);
-        req.setAttribute("criteria",criteria);
+        req.setAttribute("search", search);
+        req.setAttribute("criteria", criteria);
         if (search == "") resp.sendRedirect(req.getContextPath() + "/list-emp");
         else {
             try {

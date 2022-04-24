@@ -16,6 +16,7 @@ public class LogInFilter implements Filter {
     private List<String> excludedRequest;
     private List<String> excludedRequestEmp;
     private List<String> excludedRequestPark;
+
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         excludedRequest = new ArrayList<>();
@@ -67,32 +68,32 @@ public class LogInFilter implements Filter {
         String userRequest = req.getRequestURI();
         boolean loggedIn = session != null && session.getAttribute("loginEmp") != null;
         String dept = "";
-        if(session.getAttribute("loginEmp") != null) {
+        if (session.getAttribute("loginEmp") != null) {
             Employee employee = (Employee) session.getAttribute("loginEmp");
             dept = employee.getDepartment();
         }
-        if(loggedIn || isValidRequest(userRequest,excludedRequest)) {
-            if(dept.equals("employee")) {
-                if(isValidRequest(userRequest,excludedRequestEmp)) {
-                    chain.doFilter(req,resp);
+        if (loggedIn || isValidRequest(userRequest, excludedRequest)) {
+            if (dept.equals("employee")) {
+                if (isValidRequest(userRequest, excludedRequestEmp)) {
+                    chain.doFilter(req, resp);
                 } else {
-                    resp.sendRedirect(req.getContextPath()+"/employeehome");
+                    resp.sendRedirect(req.getContextPath() + "/employeehome");
                 }
-            } else if(dept.equals("parking")) {
-                if(isValidRequest(userRequest,excludedRequestPark)) {
-                    chain.doFilter(req,resp);
+            } else if (dept.equals("parking")) {
+                if (isValidRequest(userRequest, excludedRequestPark)) {
+                    chain.doFilter(req, resp);
                 } else {
-                    resp.sendRedirect(req.getContextPath()+"/parkinghome");
+                    resp.sendRedirect(req.getContextPath() + "/parkinghome");
                 }
-            } else chain.doFilter(req,resp);
+            } else chain.doFilter(req, resp);
         } else {
-            resp.sendRedirect(req.getContextPath()+"/login");
+            resp.sendRedirect(req.getContextPath() + "/login");
         }
     }
 
     private boolean isValidRequest(String request, List<String> excludedRequest) {
-        for(String excluded : excludedRequest) {
-            if(request.endsWith(excluded)) {
+        for (String excluded : excludedRequest) {
+            if (request.endsWith(excluded)) {
                 return true;
             }
         }

@@ -22,12 +22,12 @@ public class ViewController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        try{
+        try {
             int id = Integer.parseInt(req.getParameter("id"));
             Employee employee = employeeDAO.select(id);
-            req.setAttribute("employee",employee);
+            req.setAttribute("employee", employee);
             req.setAttribute("bday", DateUtils.convertJavaDateToSqlDate(employee.getEmployeeBirthdate()));
-            req.getRequestDispatcher("views/EmployeeJSP/view.jsp").forward(req,resp);
+            req.getRequestDispatcher("views/EmployeeJSP/view.jsp").forward(req, resp);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -64,16 +64,16 @@ public class ViewController extends HttpServlet {
                 .build();
         try {
             boolean check = employeeDAO.update(employee);
-            if(check) {
+            if (check) {
                 req.setAttribute("bday", DateUtils.convertJavaDateToSqlDate(employee.getEmployeeBirthdate()));
-                req.setAttribute("NOTI","Update successfully");
-                req.setAttribute("employee",employee);
+                req.setAttribute("NOTI", "Update successfully");
+                req.setAttribute("employee", employee);
             } else {
-                req.setAttribute("ERROR","ERROR! Update failed.");
+                req.setAttribute("ERROR", "ERROR! Update failed.");
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        req.getRequestDispatcher("views/EmployeeJSP/view.jsp").forward(req,resp);
+        req.getRequestDispatcher("views/EmployeeJSP/view.jsp").forward(req, resp);
     }
 }

@@ -46,7 +46,8 @@
                             </div>
                             <div class="col-5">
                                 <input type="text" class="form-control" id="txtCustomer" name="txtCustomer"
-                                       placeholder="Enter customer name" value="${requestScope.ticket.customerName}" required>
+                                       placeholder="Enter customer name" value="${requestScope.ticket.customerName}"
+                                       required>
                             </div>
                         </div>
                         <div class="row mb-3">

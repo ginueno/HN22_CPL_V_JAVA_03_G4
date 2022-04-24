@@ -18,16 +18,17 @@ import java.util.List;
 @WebServlet(name = "ViewBooking", urlPatterns = {"/ViewBooking"})
 public class ViewBooking extends HttpServlet {
     private BookingDAOimp d = new BookingDAOimp();
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         List<BookingOffice> b = d.getAllPlace();
-        request.setAttribute("listB",b);
+        request.setAttribute("listB", b);
         List<Trip> c = d.getAllDestination();
-        request.setAttribute("listC",c);
+        request.setAttribute("listC", c);
         int i = Integer.parseInt(request.getParameter("id"));
         BookingOffice e = d.getBookingbyId(i);
-        request.setAttribute("e",e);
+        request.setAttribute("e", e);
         request.getRequestDispatcher("/views/BookingOfficeJSP/ViewBooking.jsp").forward(request, response);
 
     }

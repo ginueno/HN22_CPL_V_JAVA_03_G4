@@ -1,7 +1,7 @@
 package services;
 
 public class TripService {
-    private void listAllTrip(){
+    private void listAllTrip() {
 
     }
 }

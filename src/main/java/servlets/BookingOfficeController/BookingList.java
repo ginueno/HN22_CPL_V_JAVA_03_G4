@@ -17,13 +17,14 @@ import java.util.List;
 public class BookingList extends HttpServlet {
 
     private BookingDAOimp d = new BookingDAOimp();
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         List<BookingOffice> b = d.getAllBooking();
-        request.setAttribute("listB",b);
+        request.setAttribute("listB", b);
         List<Trip> t = d.getAllDestination();
-        request.setAttribute("listT",t);
+        request.setAttribute("listT", t);
         request.getRequestDispatcher("/views/BookingOfficeJSP/BookingList.jsp").forward(request, response);
 
     }

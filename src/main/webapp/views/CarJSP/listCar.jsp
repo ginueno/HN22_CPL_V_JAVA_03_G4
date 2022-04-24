@@ -56,7 +56,9 @@
                                         </span>
                                 </div>
                                 <select class="form-select" id="criteria" name="criteria">
-                                    <option value="licensePlate" ${criteria=="licensePlate" ? 'selected':''}>License plate</option>
+                                    <option value="licensePlate" ${criteria=="licensePlate" ? 'selected':''}>License
+                                        plate
+                                    </option>
                                     <option value="carColor" ${criteria=="carColor" ? 'selected':''}>Color</option>
                                     <option value="carType" ${criteria=="carType" ? 'selected':''}>Type</option>
                                 </select>
@@ -112,8 +114,11 @@
                                    class="text-decoration-none"><i class="fas fa-edit"></i> Edit</a>
                                 </span>
                                     <span>
-                                <a onclick="return confirmMes()" href="${pageContext.request.contextPath}/deleteCar?licensePlate=${car.licensePlate}"
-                                   class="text-decoration-none" onclick="return confirm('Are you sure to delete this car?')"><i class="fas fa-trash-alt"></i> Delete</a>
+                                <a onclick="return confirmMes()"
+                                   href="${pageContext.request.contextPath}/deleteCar?licensePlate=${car.licensePlate}"
+                                   class="text-decoration-none"
+                                   onclick="return confirm('Are you sure to delete this car?')"><i
+                                        class="fas fa-trash-alt"></i> Delete</a>
                                     </span>
                                 </td>
                             </tr>

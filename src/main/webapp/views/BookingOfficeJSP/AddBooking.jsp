@@ -73,7 +73,8 @@
                                 </label>
                             </div>
                             <div class="col-5">
-                                <input type="tel" pattern="[0]{1}[0-9]{9}" class="form-control" id="txtDriver" required name="phone"
+                                <input type="tel" pattern="[0]{1}[0-9]{9}" class="form-control" id="txtDriver" required
+                                       name="phone"
                                        placeholder="Enter phone">
                             </div>
                         </div>
@@ -113,7 +114,8 @@
                                 </label>
                             </div>
                             <div class="col-5">
-                                <input type="date" class="form-control" name="dateFrom" required id="txtDepartureDate"><br>
+                                <input type="date" class="form-control" name="dateFrom" required
+                                       id="txtDepartureDate"><br>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -124,15 +126,18 @@
                                 </label>
                             </div>
                             <div class="col-5">
-                                <input type="date" class="form-control" name="dateTo" required id="txtDepartureDate2"><br>
+                                <input type="date" class="form-control" name="dateTo" required
+                                       id="txtDepartureDate2"><br>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-7 text-center">
                                 <button type="reset" class="btn btn-warning"><i class="fas fa-undo"></i>
-                                    Reset</button>
+                                    Reset
+                                </button>
                                 <button type="submit" class="btn btn-success"><i class="fas fa-plus"></i>
-                                    Add</button>
+                                    Add
+                                </button>
                             </div>
                         </div>
                     </form>

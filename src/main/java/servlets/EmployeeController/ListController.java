@@ -21,10 +21,10 @@ public class ListController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        try{
+        try {
             List<Employee> list = employeeDAO.getAll();
-            req.setAttribute("listOfEmployee",list);
-            req.getRequestDispatcher("views/EmployeeJSP/list.jsp").forward(req,resp);
+            req.setAttribute("listOfEmployee", list);
+            req.getRequestDispatcher("views/EmployeeJSP/list.jsp").forward(req, resp);
         } catch (SQLException e) {
             e.printStackTrace();
         }

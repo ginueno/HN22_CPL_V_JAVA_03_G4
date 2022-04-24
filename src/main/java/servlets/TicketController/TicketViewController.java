@@ -23,15 +23,15 @@ public class TicketViewController extends HttpServlet {
         String ticketId = req.getParameter("ticketId");
         if (ticketId == null || ticketId.trim().length() == 0) {
             //ERROR
-        }else{
+        } else {
             iTicketDAO ticketDAO = new TicketDAOImpl();
             iTripDAO tripDAO = new TripDAOImpl();
             try {
                 String destination = tripDAO.getDestinationByTripId(ticketId);
                 Ticket ticket = ticketDAO.getTicketByTicketId(ticketId);
-                req.setAttribute("destination",destination);
-                req.setAttribute("ticket",ticket);
-                req.getRequestDispatcher("views/TicketJSP/TicketViewJSP.jsp").forward(req,resp);
+                req.setAttribute("destination", destination);
+                req.setAttribute("ticket", ticket);
+                req.getRequestDispatcher("views/TicketJSP/TicketViewJSP.jsp").forward(req, resp);
             } catch (SQLException e) {
                 e.printStackTrace();
                 //ERROR

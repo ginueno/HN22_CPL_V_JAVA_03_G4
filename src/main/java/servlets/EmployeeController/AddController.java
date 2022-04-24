@@ -23,7 +23,7 @@ public class AddController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("views/EmployeeJSP/add.jsp").forward(req,resp);
+        req.getRequestDispatcher("views/EmployeeJSP/add.jsp").forward(req, resp);
     }
 
     @Override
@@ -54,20 +54,20 @@ public class AddController extends HttpServlet {
                 .department(dept)
                 .build();
         try {
-            req.setAttribute("employee",employee);
-            if(employeeDAO.isExisted(employee.getAccount())) {
-                req.setAttribute("ERROR","This account is already existed.");
+            req.setAttribute("employee", employee);
+            if (employeeDAO.isExisted(employee.getAccount())) {
+                req.setAttribute("ERROR", "This account is already existed.");
             } else {
                 boolean check = employeeDAO.add(employee);
-                if(check) {
-                    req.setAttribute("NOTI","Add successfully");
+                if (check) {
+                    req.setAttribute("NOTI", "Add successfully");
                 } else {
-                    req.setAttribute("ERROR","ERROR! Add failed.");
+                    req.setAttribute("ERROR", "ERROR! Add failed.");
                 }
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        req.getRequestDispatcher("views/EmployeeJSP/add.jsp").forward(req,resp);
+        req.getRequestDispatcher("views/EmployeeJSP/add.jsp").forward(req, resp);
     }
 }

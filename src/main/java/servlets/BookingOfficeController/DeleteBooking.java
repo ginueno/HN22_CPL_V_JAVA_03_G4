@@ -19,6 +19,7 @@ import java.util.List;
 @WebServlet(name = "DeleteBooking", urlPatterns = {"/DeleteBooking"})
 public class DeleteBooking extends HttpServlet {
     private BookingDAOimp d = new BookingDAOimp();
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");

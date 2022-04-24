@@ -204,7 +204,7 @@ public class TripDAOImpl implements iTripDAO {
         List<Trip> tripList = new ArrayList<>();
         try (Connection connection = DBUtils.getInstance().getConnection();
              PreparedStatement pstm = connection.prepareStatement(TripDAOCons.TRIP_QUERY_GET_TRIPS_BY_DESTINATION)) {
-            pstm.setString(1,destination);
+            pstm.setString(1, destination);
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {
                 Trip trip = Trip.builder()
@@ -231,12 +231,12 @@ public class TripDAOImpl implements iTripDAO {
         List<Trip> tripList = new ArrayList<>();
         try (Connection connection = DBUtils.getInstance().getConnection();
              PreparedStatement pstm = connection.prepareStatement(TripDAOCons.TRIP_QUERY_GET_TRIPS_BY_TEXT_SEARCH)) {
-            pstm.setInt(1,year);
-            pstm.setInt(2,month);
-            pstm.setInt(3,day);
-            pstm.setString(4,textSearch);
-            pstm.setString(5,textSearch);
-            pstm.setString(6,textSearch);
+            pstm.setInt(1, year);
+            pstm.setInt(2, month);
+            pstm.setInt(3, day);
+            pstm.setString(4, textSearch);
+            pstm.setString(5, textSearch);
+            pstm.setString(6, textSearch);
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {
                 Trip trip = Trip.builder()
@@ -263,9 +263,9 @@ public class TripDAOImpl implements iTripDAO {
         List<Trip> tripList = new ArrayList<>();
         try (Connection connection = DBUtils.getInstance().getConnection();
              PreparedStatement pstm = connection.prepareStatement(TripDAOCons.TRIP_QUERY_GET_TRIPS_BY_DEPARTURE_DATE)) {
-            pstm.setInt(1,year);
-            pstm.setInt(2,month);
-            pstm.setInt(3,day);
+            pstm.setInt(1, year);
+            pstm.setInt(2, month);
+            pstm.setInt(3, day);
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {
                 Trip trip = Trip.builder()
@@ -290,9 +290,9 @@ public class TripDAOImpl implements iTripDAO {
     public static void main(String[] args) {
         iTripDAO tripDAO = new TripDAOImpl();
         try {
-            List<Trip> tripList = tripDAO.getTripsByDepartureDate(11,11,2011);
+            List<Trip> tripList = tripDAO.getTripsByDepartureDate(11, 11, 2011);
             System.out.println(tripList.size());
-            tripList = tripDAO.getTripsByTextSearch("abc",20,4,2022);
+            tripList = tripDAO.getTripsByTextSearch("abc", 20, 4, 2022);
             System.out.println(tripList.size());
 
         } catch (SQLException e) {

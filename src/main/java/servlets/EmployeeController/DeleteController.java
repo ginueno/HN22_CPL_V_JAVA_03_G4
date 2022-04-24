@@ -21,7 +21,7 @@ public class DeleteController extends HttpServlet {
         int id = Integer.parseInt(req.getParameter("id"));
         try {
             employeeDAO.delete(id);
-            resp.sendRedirect(req.getContextPath()+"/list-emp");
+            resp.sendRedirect(req.getContextPath() + "/list-emp");
         } catch (SQLException e) {
             e.printStackTrace();
         }

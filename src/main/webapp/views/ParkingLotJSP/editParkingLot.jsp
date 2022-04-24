@@ -44,7 +44,8 @@
                                 </label>
                             </div>
                             <div class="col-5">
-                                <input type="text" class="form-control" id="pName" name="pName" value="${parkingLot.parkName}"
+                                <input type="text" class="form-control" id="pName" name="pName"
+                                       value="${parkingLot.parkName}"
                                        placeholder="Enter Parking lot name">
                             </div>
                         </div>
@@ -98,11 +99,13 @@
                             </div>
                             <div class="col-5">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="status" id="inlineRadio1" value="Blank" ${parkingLot.parkStatus eq "Blank"?'checked':''}>
+                                    <input class="form-check-input" type="radio" name="status" id="inlineRadio1"
+                                           value="Blank" ${parkingLot.parkStatus eq "Blank"?'checked':''}>
                                     <label class="form-check-label" for="inlineRadio1">Blank</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="status" id="inlineRadio2" value="Full" ${parkingLot.parkStatus eq "Full"?'checked':''}>
+                                    <input class="form-check-input" type="radio" name="status" id="inlineRadio2"
+                                           value="Full" ${parkingLot.parkStatus eq "Full"?'checked':''}>
                                     <label class="form-check-label" for="inlineRadio2">Full</label>
                                 </div>
                             </div>

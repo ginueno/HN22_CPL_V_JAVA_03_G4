@@ -72,7 +72,7 @@ public class TicketSearchController extends HttpServlet {
                     }
                 }
             } else {
-                req.setAttribute("message","Date invalid!");
+                req.setAttribute("message", "Date invalid!");
                 ticketList = ticketDAO.getAllTicket();
                 tripList = tripDAO.getAllTrip();
             }

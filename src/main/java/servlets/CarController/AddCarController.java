@@ -34,7 +34,7 @@ public class AddCarController extends HttpServlet {
             List<BookingOffice> listCompany = bookingDAO.getAllBooking();
             req.setAttribute("parkId", listPark);
             req.setAttribute("company", listCompany);
-            req.getRequestDispatcher("views/CarJSP/addCar.jsp").forward(req,resp);
+            req.getRequestDispatcher("views/CarJSP/addCar.jsp").forward(req, resp);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -59,20 +59,20 @@ public class AddCarController extends HttpServlet {
             List<BookingOffice> listCompany = bookingDAO.getAllBooking();
             req.setAttribute("parkId", listPark);
             req.setAttribute("company", listCompany);
-            if(carDAO.getCarByLicensePlate(licensePlate)!=null) {
-                req.setAttribute("ERROR","This license plate is already existed.");
+            if (carDAO.getCarByLicensePlate(licensePlate) != null) {
+                req.setAttribute("ERROR", "This license plate is already existed.");
             } else {
                 boolean check = carDAO.add(car);
-                if(check) {
-                    req.setAttribute("NOTI","Add successfully");
+                if (check) {
+                    req.setAttribute("NOTI", "Add successfully");
                 } else {
-                    req.setAttribute("ERROR","ERROR! Add failed.");
+                    req.setAttribute("ERROR", "ERROR! Add failed.");
                 }
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        req.getRequestDispatcher("views/CarJSP/addCar.jsp").forward(req,resp);
+        req.getRequestDispatcher("views/CarJSP/addCar.jsp").forward(req, resp);
     }
 }

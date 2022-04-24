@@ -29,13 +29,13 @@ public class TicketDeleteController extends HttpServlet {
         } else {
             try {
                 String tripId = ticketDAO.getTripIdByTicketId(ticketId);
-                if (ticketDAO.removeTicketByTicketId(ticketId)){
-                    if(tripDAO.updateBookedTicketByTripId(tripId,-1)) {
+                if (ticketDAO.removeTicketByTicketId(ticketId)) {
+                    if (tripDAO.updateBookedTicketByTripId(tripId, -1)) {
                         req.setAttribute("message", TicketDAOCons.SUCCESS);
-                    }else{
+                    } else {
                         req.setAttribute("message", TicketDAOCons.FAIL);
                     }
-                }else{
+                } else {
                     req.setAttribute("message", TicketDAOCons.FAIL);
                 }
             } catch (SQLException e) {
@@ -43,6 +43,6 @@ public class TicketDeleteController extends HttpServlet {
                 //ERROR
             }
         }
-        req.getRequestDispatcher("/ticket-list").include(req,resp);
+        req.getRequestDispatcher("/ticket-list").include(req, resp);
     }
 }

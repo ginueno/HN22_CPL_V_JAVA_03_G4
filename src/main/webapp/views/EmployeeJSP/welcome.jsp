@@ -60,7 +60,8 @@
                     <div id="abc" class="">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item border-bottom-0 bg-light">
-                                <a href="${pageContext.request.contextPath}/list-emp" class="ms-3 nav-link link-primary">
+                                <a href="${pageContext.request.contextPath}/list-emp"
+                                   class="ms-3 nav-link link-primary">
                                     <i class="fas fa-list"></i>
                                     Employee list
                                 </a>

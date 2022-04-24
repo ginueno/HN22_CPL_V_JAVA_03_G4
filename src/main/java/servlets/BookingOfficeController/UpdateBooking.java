@@ -19,6 +19,7 @@ import java.util.List;
 @WebServlet(name = "UpdateBooking", urlPatterns = {"/UpdateBooking"})
 public class UpdateBooking extends HttpServlet {
     private BookingDAOimp d = new BookingDAOimp();
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
@@ -31,7 +32,7 @@ public class UpdateBooking extends HttpServlet {
         Date to = Date.valueOf(request.getParameter("dateTo"));
         int id = Integer.parseInt(request.getParameter("id"));
 
-        d.updateBooking(to,name,phone,place,price,from,tripId,id);
+        d.updateBooking(to, name, phone, place, price, from, tripId, id);
         request.getRequestDispatcher("BookingList").forward(request, response);
 
     }

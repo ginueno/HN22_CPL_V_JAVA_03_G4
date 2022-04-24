@@ -20,6 +20,7 @@ import java.util.List;
 @WebServlet(name = "SearchBooking", urlPatterns = {"/SearchBooking"})
 public class SearchBooking extends HttpServlet {
     private BookingDAOimp d = new BookingDAOimp();
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
 
@@ -45,16 +46,16 @@ public class SearchBooking extends HttpServlet {
             String criteria = request.getParameter("criteria");
             List<BookingOffice> list;
             List<Trip> t = d.getAllDestination();
-            request.setAttribute("listT",t);
-            if (keyword.equals("")){
+            request.setAttribute("listT", t);
+            if (keyword.equals("")) {
                 list = d.getAllBooking();
-            }else {
-                list = d.searchBooking(keyword,criteria) ;
+            } else {
+                list = d.searchBooking(keyword, criteria);
             }
-            request.setAttribute("listB",list);
-            request.setAttribute("keyword",keyword);
-            request.setAttribute("criteria",criteria);
-            request.getRequestDispatcher("views/BookingOfficeJSP/BookingList.jsp").forward(request,response);
+            request.setAttribute("listB", list);
+            request.setAttribute("keyword", keyword);
+            request.setAttribute("criteria", criteria);
+            request.getRequestDispatcher("views/BookingOfficeJSP/BookingList.jsp").forward(request, response);
         } catch (SQLException e) {
             e.printStackTrace();
         }

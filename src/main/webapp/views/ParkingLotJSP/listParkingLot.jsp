@@ -11,6 +11,14 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/styles.css"/>
     <script src="https://kit.fontawesome.com/32b1007cf0.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
     <title>Parking Lot</title>
 </head>
 
@@ -75,7 +83,7 @@
                 <div>
                     <!--ADD CODE HERE-->
 
-                    <table class="table table-striped table-bordered">
+                    <table class="table table-striped table-bordered" id="myTable">
                         <thead class="bg-light border-bottom-0">
                         <tr>
                             <th scope="col">No</th>
@@ -93,8 +101,9 @@
                                 <td>${item.parkId}</td>
                                 <td>${item.parkName}</td>
                                 <td>${item.parkPlace}</td>
-                                <td><fmt:formatNumber type = "number"  groupingUsed = "false" value = "${item.parkArea}" /></td>
-                                <td><fmt:formatNumber type = "number"  groupingUsed = "false" value = "${item.parkPrice}" /></td>
+                                <td><fmt:formatNumber type="number" groupingUsed="false" value="${item.parkArea}"/></td>
+                                <td><fmt:formatNumber type="number" groupingUsed="false"
+                                                      value="${item.parkPrice}"/></td>
                                 <td>${item.parkStatus}</td>
                                 <td>
                                     <span class="me-3">
@@ -103,7 +112,9 @@
                                     </span>
                                     <span>
                                     <a href="${pageContext.request.contextPath}/deleteParkingLot?id=${item.parkId}"
-                                       class="text-decoration-none" onclick="return confirm('Are you sure to delete ${item.parkName} ?')"><i class="fas fa-trash-alt"></i> Delete</a>
+                                       class="text-decoration-none"
+                                       onclick="return confirm('Are you sure to delete ${item.parkName} ?')"><i
+                                            class="fas fa-trash-alt"></i> Delete</a>
                                     </span>
                                 </td>
                             </tr>
@@ -120,6 +131,15 @@
 
 </div>
 
+<script>
+    $('#myTable').DataTable({
+        searching: false,
+        ordering: false,
+        info: false,
+        lengthChange: false,
+        "pageLength": 10,
+    });
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

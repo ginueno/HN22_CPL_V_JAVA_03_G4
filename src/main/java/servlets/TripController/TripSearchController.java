@@ -34,14 +34,14 @@ public class TripSearchController extends HttpServlet {
 
         try {
             //if user not input text search => list all
-            if (DateUtils.isDateValid(day+"/"+month+"/"+year)) {
+            if (DateUtils.isDateValid(day + "/" + month + "/" + year)) {
                 if (txtSearch == null || txtSearch.trim().length() == 0) {
                     tripList = tripDAO.getTripsByDepartureDate(Integer.parseInt(day), Integer.parseInt(month), Integer.parseInt(year));
                 } else if (txtSearch != null && txtSearch.trim().length() > 0) {
                     tripList = tripDAO.getTripsByTextSearch(txtSearch, Integer.parseInt(day), Integer.parseInt(month), Integer.parseInt(year));
                 }
-            }else{
-                req.setAttribute("message","Date invalid!");
+            } else {
+                req.setAttribute("message", "Date invalid!");
                 tripList = tripDAO.getAllTrip();
             }
             int[] years = tripDAO.getMinAndMaxYearFromTrip();

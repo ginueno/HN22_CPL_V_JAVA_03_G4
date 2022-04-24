@@ -54,16 +54,16 @@ public class TripEditController extends HttpServlet {
             String txtMaximumTickerNumber = req.getParameter("txtMaximumTickerNumber");
             String txtDepartureDate = req.getParameter("txtDepartureDate");
             if (
-                txtDestination == null || txtDestination.trim().length() == 0 ||
-                txtDepartureTime == null || txtDepartureTime.trim().length() == 0 ||
-                txtDriver == null || txtDriver.trim().length() == 0 ||
-                txtCarType == null || txtCarType.trim().length() == 0 ||
-                txtMaximumTickerNumber == null || txtMaximumTickerNumber.trim().length() == 0 ||
-                txtDepartureDate == null || txtDepartureDate.trim().length() == 0
-            ){
+                    txtDestination == null || txtDestination.trim().length() == 0 ||
+                            txtDepartureTime == null || txtDepartureTime.trim().length() == 0 ||
+                            txtDriver == null || txtDriver.trim().length() == 0 ||
+                            txtCarType == null || txtCarType.trim().length() == 0 ||
+                            txtMaximumTickerNumber == null || txtMaximumTickerNumber.trim().length() == 0 ||
+                            txtDepartureDate == null || txtDepartureDate.trim().length() == 0
+            ) {
 //                req.setAttribute("message", "Edit" + TripDAOCons.FAIL + " cause fields are empty!");
 //                req.getRequestDispatcher("views/TripJSP/TripListJSP.jsp").forward(req, resp);
-            }else{
+            } else {
                 try {
                     Trip trip = Trip.builder()
                             .tripId(Integer.parseInt(tripId))
@@ -76,10 +76,10 @@ public class TripEditController extends HttpServlet {
                             .build();
                     System.out.println(trip);
                     iTripDAO tripDAO = new TripDAOImpl();
-                    if (tripDAO.updateTrip(trip)){
+                    if (tripDAO.updateTrip(trip)) {
                         req.setAttribute("message", "Edit" + TripDAOCons.SUCCESS);
                         req.getRequestDispatcher("views/TripJSP/TripListJSP.jsp").forward(req, resp);
-                    }else{
+                    } else {
                         req.setAttribute("message", "Edit" + TripDAOCons.FAIL + "!");
                         req.getRequestDispatcher("views/TripJSP/TripListJSP.jsp").forward(req, resp);
                     }

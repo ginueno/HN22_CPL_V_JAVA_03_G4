@@ -21,7 +21,7 @@ public class LoginController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("views/Login/login.jsp").forward(req,resp);
+        req.getRequestDispatcher("views/Login/login.jsp").forward(req, resp);
     }
 
     @Override
@@ -33,27 +33,27 @@ public class LoginController extends HttpServlet {
                 .account(account)
                 .password(password)
                 .build();
-        try{
-            Employee loginEmp = employeeDAO.logIn(employee.getAccount(),employee.getPassword());
-            if(loginEmp!=null) {
+        try {
+            Employee loginEmp = employeeDAO.logIn(employee.getAccount(), employee.getPassword());
+            if (loginEmp != null) {
                 HttpSession session = req.getSession();
-                session.setAttribute("loginEmp",loginEmp);
-                if(Objects.equals(remember, "yes")) {
-                    session.setAttribute("rememberAccount",account);
-                    session.setAttribute("rmbCheck","yes");
-                } else  {
-                    session.removeAttribute("rememberAccount");
-                    session.setAttribute("rmbCheck","no");
-                }
-                if(loginEmp.getDepartment().equals("employee")) {
-                    resp.sendRedirect(req.getContextPath()+"/employeehome");
+                session.setAttribute("loginEmp", loginEmp);
+                if (Objects.equals(remember, "yes")) {
+                    session.setAttribute("rememberAccount", account);
+                    session.setAttribute("rmbCheck", "yes");
                 } else {
-                    resp.sendRedirect(req.getContextPath()+"/parkinghome");
+                    session.removeAttribute("rememberAccount");
+                    session.setAttribute("rmbCheck", "no");
+                }
+                if (loginEmp.getDepartment().equals("employee")) {
+                    resp.sendRedirect(req.getContextPath() + "/employeehome");
+                } else {
+                    resp.sendRedirect(req.getContextPath() + "/parkinghome");
                 }
             } else {
-                req.setAttribute("registerEmp",employee);
-                req.setAttribute("NOTI","Incorrect username or password");
-                req.getRequestDispatcher("views/Login/login.jsp").forward(req,resp);
+                req.setAttribute("registerEmp", employee);
+                req.setAttribute("NOTI", "Incorrect username or password");
+                req.getRequestDispatcher("views/Login/login.jsp").forward(req, resp);
             }
         } catch (SQLException e) {
             e.printStackTrace();

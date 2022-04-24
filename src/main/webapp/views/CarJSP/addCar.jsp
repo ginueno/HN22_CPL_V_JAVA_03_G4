@@ -39,7 +39,8 @@
             <div class="pt-5 ps-5 pe-5">
                 <div>
                     <!--ADD CODE HERE-->
-                    <form onsubmit="return validateLicensePlate()" name = "addCarForm" action="${pageContext.request.contextPath}/addCar" method="post">
+                    <form onsubmit="return validateLicensePlate()" name="addCarForm"
+                          action="${pageContext.request.contextPath}/addCar" method="post">
                         <div class="row mb-3">
                             <div class="col-2">
                                 <label class="fw-bold" role="button" for="licensePlate">
@@ -61,7 +62,7 @@
                             </div>
                             <div class="col-5">
                                 <input type="text" class="form-control" id="carColor" name="carColor"
-                                       placeholder="Enter car color" >
+                                       placeholder="Enter car color">
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -72,7 +73,7 @@
                             </div>
                             <div class="col-5">
                                 <input type="text" class="form-control" id="carType" name="carType"
-                                       placeholder="Enter car type" >
+                                       placeholder="Enter car type">
                             </div>
                         </div>
 
@@ -110,9 +111,11 @@
                         <div class="row mb-3">
                             <div class="col-7 text-center">
                                 <button type="reset" class="btn btn-warning"><i class="fas fa-undo"></i>
-                                    Reset</button>
+                                    Reset
+                                </button>
                                 <button type="submit" class="btn btn-success"><i class="fas fa-plus"></i>
-                                    Add</button>
+                                    Add
+                                </button>
                             </div>
                         </div>
                     </form>

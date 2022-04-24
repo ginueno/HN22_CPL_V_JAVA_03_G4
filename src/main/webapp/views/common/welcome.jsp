@@ -60,13 +60,15 @@
                     <div id="bookingMenu" class="collapse">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item border-bottom-0 bg-light">
-                                <a href="${pageContext.request.contextPath}/BookingList" class="ms-3 nav-link link-primary">
+                                <a href="${pageContext.request.contextPath}/BookingList"
+                                   class="ms-3 nav-link link-primary">
                                     <i class="fas fa-list"></i>
                                     Booking office list
                                 </a>
                             </li>
                             <li class="list-group-item border-bottom bg-light">
-                                <a href="${pageContext.request.contextPath}/AddBooking" class="ms-3 nav-link link-primary">
+                                <a href="${pageContext.request.contextPath}/AddBooking"
+                                   class="ms-3 nav-link link-primary">
                                     <i class="fas fa-plus"></i>
                                     Add booking office
                                 </a>
@@ -104,13 +106,15 @@
                     <div id="parkingMenu" class="collapse">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item border-bottom-0 bg-light">
-                                <a href="${pageContext.request.contextPath}/listParkingLot" class="ms-3 nav-link link-primary">
+                                <a href="${pageContext.request.contextPath}/listParkingLot"
+                                   class="ms-3 nav-link link-primary">
                                     <i class="fas fa-list"></i>
                                     Parking lot list
                                 </a>
                             </li>
                             <li class="list-group-item border-bottom bg-light">
-                                <a href="${pageContext.request.contextPath}/addParkingLot" class="ms-3 nav-link link-primary">
+                                <a href="${pageContext.request.contextPath}/addParkingLot"
+                                   class="ms-3 nav-link link-primary">
                                     <i class="fas fa-plus"></i>
                                     Add parking lot
                                 </a>
@@ -126,13 +130,15 @@
                     <div id="tripMenu" class="collapse">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item border-bottom-0 bg-light">
-                                <a href="${pageContext.request.contextPath}/trip-list" class="ms-3 nav-link link-primary">
+                                <a href="${pageContext.request.contextPath}/trip-list"
+                                   class="ms-3 nav-link link-primary">
                                     <i class="fas fa-list"></i>
                                     Trip list
                                 </a>
                             </li>
                             <li class="list-group-item border-bottom bg-light">
-                                <a href="${pageContext.request.contextPath}/trip-add" class="ms-3 nav-link link-primary">
+                                <a href="${pageContext.request.contextPath}/trip-add"
+                                   class="ms-3 nav-link link-primary">
                                     <i class="fas fa-plus"></i>
                                     Add Trip
                                 </a>
@@ -148,13 +154,15 @@
                     <div id="ticketMenu" class="collapse">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item border-bottom-0 bg-light">
-                                <a href="${pageContext.request.contextPath}/ticket-list" class="ms-3 nav-link link-primary">
+                                <a href="${pageContext.request.contextPath}/ticket-list"
+                                   class="ms-3 nav-link link-primary">
                                     <i class="fas fa-list"></i>
                                     Ticket list
                                 </a>
                             </li>
                             <li class="list-group-item border-bottom bg-light">
-                                <a href="${pageContext.request.contextPath}/ticket-add" class="ms-3 nav-link link-primary">
+                                <a href="${pageContext.request.contextPath}/ticket-add"
+                                   class="ms-3 nav-link link-primary">
                                     <i class="fas fa-plus"></i>
                                     Add Ticket
                                 </a>
