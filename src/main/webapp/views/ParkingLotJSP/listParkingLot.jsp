@@ -78,13 +78,13 @@
                     <table class="table table-striped table-bordered">
                         <thead class="bg-light border-bottom-0">
                         <tr>
-                            <th scope="col" style="width: 5%">No</th>
-                            <th scope="col" style="width: 20%">Parking lot</th>
-                            <th scope="col" style="width: 15%">Place</th>
-                            <th scope="col" style="width: 10%">Area</th>
-                            <th scope="col" style="width: 15%">Price</th>
-                            <th scope="col" style="width: 10%">Status</th>
-                            <th scope="col" style="width: 10%">Action</th>
+                            <th scope="col">No</th>
+                            <th scope="col">Parking lot</th>
+                            <th scope="col">Place</th>
+                            <th scope="col">Area</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Action</th>
                         </tr>
                         </thead>
                         <tbody>

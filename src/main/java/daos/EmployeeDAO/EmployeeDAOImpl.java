@@ -28,7 +28,7 @@ public class EmployeeDAOImpl implements iEmployeeDAO {
                         .account(resultSet.getString(2))
                         .department(resultSet.getString(3))
                         .employeeAddress(resultSet.getString(4))
-                        .employeeBirthdate(DateUtils.convertStringToDate(resultSet.getString(5)))
+                        .employeeBirthdate(DateUtils.convertStringToDate2(resultSet.getString(5)))
                         .employeeEmail(resultSet.getString(6))
                         .employeeName(resultSet.getString(7))
                         .employeePhone(resultSet.getString(8))
@@ -58,7 +58,7 @@ public class EmployeeDAOImpl implements iEmployeeDAO {
                         .account(resultSet.getString(2))
                         .department(resultSet.getString(3))
                         .employeeAddress(resultSet.getString(4))
-                        .employeeBirthdate(DateUtils.convertStringToDate(resultSet.getString(5)))
+                        .employeeBirthdate(DateUtils.convertStringToDate2(resultSet.getString(5)))
                         .employeeEmail(resultSet.getString(6))
                         .employeeName(resultSet.getString(7))
                         .employeePhone(resultSet.getString(8))
@@ -154,7 +154,7 @@ public class EmployeeDAOImpl implements iEmployeeDAO {
                         .account(resultSet.getString(2))
                         .department(resultSet.getString(3))
                         .employeeAddress(resultSet.getString(4))
-                        .employeeBirthdate(DateUtils.convertStringToDate(resultSet.getString(5)))
+                        .employeeBirthdate(DateUtils.convertStringToDate2(resultSet.getString(5)))
                         .employeeEmail(resultSet.getString(6))
                         .employeeName(resultSet.getString(7))
                         .employeePhone(resultSet.getString(8))
@@ -185,7 +185,7 @@ public class EmployeeDAOImpl implements iEmployeeDAO {
                         .account(resultSet.getString(2))
                         .department(resultSet.getString(3))
                         .employeeAddress(resultSet.getString(4))
-                        .employeeBirthdate(DateUtils.convertStringToDate(resultSet.getString(5)))
+                        .employeeBirthdate(DateUtils.convertStringToDate2(resultSet.getString(5)))
                         .employeeEmail(resultSet.getString(6))
                         .employeeName(resultSet.getString(7))
                         .employeePhone(resultSet.getString(8))
@@ -195,6 +195,21 @@ public class EmployeeDAOImpl implements iEmployeeDAO {
                 return employee;
             }
             return null;
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new SQLException();
+        }
+    }
+
+    @Override
+    public boolean isExisted(String account) throws SQLException {
+        try {
+            connection = DBUtils.getInstance().getConnection();
+            preparedStatement = connection.prepareStatement(Constants.EMPLOYEE_FIND_BY_ACCOUNT);
+            preparedStatement.setString(1,account);
+            resultSet = preparedStatement.executeQuery();
+            if(resultSet.next()) return true;
+            return false;
         } catch (Exception e) {
             e.printStackTrace();
             throw new SQLException();

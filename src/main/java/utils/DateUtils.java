@@ -6,9 +6,15 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class DateUtils {
-    public static Date convertStringToDate(String dateString)
+    public static Date convertStringToDate1(String dateString)
             throws ParseException {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        Date date = formatter.parse(dateString);
+        return date;
+    }
+    public static Date convertStringToDate2(String dateString)
+            throws ParseException {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         Date date = formatter.parse(dateString);
         return date;
     }

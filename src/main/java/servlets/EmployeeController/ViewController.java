@@ -40,7 +40,7 @@ public class ViewController extends HttpServlet {
         String phone = req.getParameter("phone");
         Date bDay = null;
         try {
-            bDay = DateUtils.convertStringToDate(req.getParameter("bday"));
+            bDay = DateUtils.convertStringToDate2(req.getParameter("bday"));
         } catch (ParseException e) {
             e.printStackTrace();
         }

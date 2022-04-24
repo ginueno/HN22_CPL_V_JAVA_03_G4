@@ -197,7 +197,6 @@
                                 <input type="password" class="form-control" id="password" name="password"
                                        placeholder="Enter password"
                                        pattern="^(?=.*?[A-Z])(?=.*?[a-z]).{6,}$"
-
                                        required>
                             </div>
                         </div>

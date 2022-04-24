@@ -185,7 +185,7 @@
                             </div>
                             <div class="col-5">
                                 <input type="text" class="form-control" id="account" name="account"
-                                       placeholder="Enter account" value="${employee.account}" required>
+                                       placeholder="Enter account" value="${employee.account}" readonly>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -234,7 +234,9 @@
                                     Update
                                 </button>
                                 <a href="${pageContext.request.contextPath}/delete-emp?id=${employee.employeeId}"
-                                   role="button" class="btn btn-danger"><i class="fas fa-trash-can"></i>
+                                   role="button" class="btn btn-danger"
+                                   onclick="return confirm('Are you sure you want to delete this item')"
+                                   role="button"><i class="fas fa-trash-can"></i>
                                     Delete
                                 </a>
                             </div>

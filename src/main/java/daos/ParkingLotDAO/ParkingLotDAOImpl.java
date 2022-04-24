@@ -37,6 +37,32 @@ public class ParkingLotDAOImpl implements iParkingLotDAO {
     }
 
     @Override
+    public List<ParkingLot> getAllParkingLotByStatus(String status) throws SQLException {
+
+        try (Connection connection = DBUtils.getInstance().getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(ParkingLotDAOCons.PARKING_LOT_QUERY_BY_PARKING_STATUS)) {
+            preparedStatement.setString(1, status);
+            ResultSet rs = preparedStatement.executeQuery();
+            List<ParkingLot> parkingLotList = new ArrayList<>();
+            while (rs.next()) {
+                ParkingLot lot = ParkingLot.builder()
+                        .parkId(rs.getInt("parkId"))
+                        .parkName(rs.getString("parkName"))
+                        .parkPlace(rs.getString("parkPlace"))
+                        .parkArea(rs.getDouble("parkArea"))
+                        .parkPrice(rs.getDouble("parkPrice"))
+                        .parkStatus(rs.getString("parkStatus"))
+                        .build();
+                parkingLotList.add(lot);
+            }
+            return parkingLotList;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new SQLException();
+        }
+    }
+
+    @Override
     public List<String> getAllParkingPlace() throws SQLException {
         try (Connection connection = DBUtils.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(ParkingLotDAOCons.PARKING_LOT_QUERY_PLACE)) {

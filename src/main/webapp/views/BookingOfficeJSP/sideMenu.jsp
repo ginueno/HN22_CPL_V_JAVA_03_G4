@@ -38,13 +38,13 @@
             <div id="abc" class="">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item border-bottom-0 bg-light">
-                        <a href="${pageContext.request.contextPath}/#" class="ms-3 nav-link link-primary">
+                        <a href="${pageContext.request.contextPath}/listCar" class="ms-3 nav-link link-primary">
                             <i class="fas fa-list"></i>
                             Car list
                         </a>
                     </li>
                     <li class="list-group-item border-bottom bg-light">
-                        <a href="${pageContext.request.contextPath}/#" class="ms-3 nav-link link-primary">
+                        <a href="${pageContext.request.contextPath}/addCar" class="ms-3 nav-link link-primary">
                             <i class="fas fa-plus"></i>
                             Add Car
                         </a>
@@ -52,11 +52,11 @@
                 </ul>
             </div>
             <li class="list-group-item border-bottom bg-light">
-                <a href="#abc" class="nav-link link-primary" data-bs-toggle="collapse">
-                    <i class="fas fa-chart-bar"></i>
-                    Parking lot manager
-                </a>
-            </li>
+            <a href="#abc" class="nav-link link-primary" data-bs-toggle="collapse">
+                <i class="fas fa-chart-bar"></i>
+                Parking lot manager
+            </a>
+        </li>
             <div id="abc" class="">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item border-bottom-0 bg-light">
@@ -69,6 +69,50 @@
                         <a href="${pageContext.request.contextPath}/addParkingLot" class="ms-3 nav-link link-primary">
                             <i class="fas fa-plus"></i>
                             Add parking lot
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <li class="list-group-item border-bottom bg-light">
+                <a href="#abc" class="nav-link link-primary" data-bs-toggle="collapse">
+                    <i class="fas fa-plane"></i>
+                    Trip manager
+                </a>
+            </li>
+            <div id="abc" class="">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item border-bottom-0 bg-light">
+                        <a href="${pageContext.request.contextPath}/trip-list" class="ms-3 nav-link link-primary">
+                            <i class="fas fa-list"></i>
+                            Trip list
+                        </a>
+                    </li>
+                    <li class="list-group-item border-bottom bg-light">
+                        <a href="${pageContext.request.contextPath}/trip-add" class="ms-3 nav-link link-primary">
+                            <i class="fas fa-plus"></i>
+                            Add Trip
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <li class="list-group-item border-bottom bg-light">
+                <a href="#abc" class="nav-link link-primary" data-bs-toggle="collapse">
+                    <i class="fas fa-ticket"></i>
+                    Ticket manager
+                </a>
+            </li>
+            <div id="abc" class="">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item border-bottom-0 bg-light">
+                        <a href="${pageContext.request.contextPath}/ticket-list" class="ms-3 nav-link link-primary">
+                            <i class="fas fa-list"></i>
+                            Ticket list
+                        </a>
+                    </li>
+                    <li class="list-group-item border-bottom bg-light">
+                        <a href="${pageContext.request.contextPath}/ticket-add" class="ms-3 nav-link link-primary">
+                            <i class="fas fa-plus"></i>
+                            Add Ticket
                         </a>
                     </li>
                 </ul>

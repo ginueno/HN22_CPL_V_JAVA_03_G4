@@ -75,7 +75,8 @@
                                 </label>
                             </div>
                             <div class="col-5">
-                                <input type="tel" pattern="[0]{1}[0-9]{9}" class="form-control" id="txtDriver" required name="phone"
+                                <input type="tel" pattern="[0]{1}[0-9]{9}" class="form-control" id="txtDriver" required
+                                       name="phone"
                                        value="${e.officePhone}" placeholder="${e.officePhone}">
                             </div>
                         </div>
@@ -131,8 +132,12 @@
                             </div>
                         </div>
                         <button type="submit" class="btn btn-success"><i class="fas fa-plus"></i>
-                            Update</button>
-                    <a href="DeleteBooking?id=${e.officeId}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item')" role="button" title="Delete" data-toggle="tooltip"><i class="material-icons"><i class="fas fa-redo"></i> Delete </i></a>
+                            Update
+                        </button>
+                        <a href="DeleteBooking?id=${e.officeId}" class="btn btn-danger"
+                           onclick="return confirm('Are you sure you want to delete this item')" role="button"
+                           title="Delete" data-toggle="tooltip"><i class="material-icons"><i class="fas fa-redo"></i>
+                            Delete </i></a>
 
                     </form>
                     <!--END CODE HERE-->

@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface iParkingLotDAO {
      List<ParkingLot> getAllParkingLot() throws SQLException;
+     List<ParkingLot> getAllParkingLotByStatus(String status) throws SQLException;
      List<String> getAllParkingPlace() throws SQLException;
      ParkingLot getParkingLotById(int id) throws SQLException;
      boolean deleteParkingLot(int id) throws SQLException;

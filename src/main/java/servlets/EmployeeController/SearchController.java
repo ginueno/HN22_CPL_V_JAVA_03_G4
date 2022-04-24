@@ -31,6 +31,7 @@ public class SearchController extends HttpServlet {
                 if (list.isEmpty()) {
                     req.setAttribute("ERROR", "No search result");
                 } else {
+                    req.setAttribute("ERROR", "");
                     req.setAttribute("listOfEmployee", list);
                 }
                 req.getRequestDispatcher("views/EmployeeJSP/list.jsp").forward(req, resp);

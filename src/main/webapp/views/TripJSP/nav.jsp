@@ -2,8 +2,8 @@
     <div class="col-2 px-0">
         <li class="list-group-item bg-light border-end-0 border-top-0 border-start-0">
             <a class="nav-link text-secondary text-decoration-none" href="#">
-                <i class="fas fa-cart-shopping"></i>
-                Booking Office
+                <i class="fas fa-plane"></i>
+                Trip
             </a>
         </li>
     </div>

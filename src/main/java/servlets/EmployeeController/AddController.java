@@ -32,7 +32,7 @@ public class AddController extends HttpServlet {
         String phone = req.getParameter("phone");
         Date bDay = null;
         try {
-            bDay = DateUtils.convertStringToDate(req.getParameter("bday"));
+            bDay = DateUtils.convertStringToDate2(req.getParameter("bday"));
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -54,11 +54,16 @@ public class AddController extends HttpServlet {
                 .department(dept)
                 .build();
         try {
-            boolean check = employeeDAO.add(employee);
-            if(check) {
-                req.setAttribute("NOTI","Add successfully");
+            req.setAttribute("employee",employee);
+            if(employeeDAO.isExisted(employee.getAccount())) {
+                req.setAttribute("ERROR","This account is already existed.");
             } else {
-                req.setAttribute("ERROR","ERROR! Add failed.");
+                boolean check = employeeDAO.add(employee);
+                if(check) {
+                    req.setAttribute("NOTI","Add successfully");
+                } else {
+                    req.setAttribute("ERROR","ERROR! Add failed.");
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();

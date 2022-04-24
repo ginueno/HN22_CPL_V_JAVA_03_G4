@@ -75,7 +75,7 @@
             <div class="pt-5 ps-5 pe-5">
                 <div>
                     <!--ADD CODE HERE-->
-                    <table class="table">
+                    <table class="table table-striped table-bordered">
                         <thead class="thead-dark">
                         <tr>
                             <th scope="col">ID</th>
