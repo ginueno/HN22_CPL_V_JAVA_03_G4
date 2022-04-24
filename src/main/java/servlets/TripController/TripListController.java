@@ -20,6 +20,8 @@ public class TripListController extends HttpServlet {
         iTripDAO tripDAO = new TripDAOImpl();
         try {
             List<Trip> tripList = tripDAO.getAllTrip();
+            int[] years = tripDAO.getMinAndMaxYearFromTrip();
+            req.setAttribute("years", years);
             req.setAttribute("tripList", tripList);
             req.getRequestDispatcher("views/TripJSP/TripListJSP.jsp").forward(req,resp);
         } catch (SQLException e) {

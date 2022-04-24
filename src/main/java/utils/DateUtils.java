@@ -1,11 +1,23 @@
 package utils;
 
 import java.sql.Time;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class DateUtils {
+    public static boolean isDateValid(String dateString) throws ParseException{
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        dateFormat.setLenient(false);
+        try{
+            Date date = dateFormat.parse(dateString);
+            return true;
+        }catch (ParseException e){
+            e.printStackTrace();
+            return false;
+        }
+    }
     public static Date convertStringToDate(String dateString)
             throws ParseException {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");

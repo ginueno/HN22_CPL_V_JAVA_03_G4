@@ -3,6 +3,7 @@ package daos.TicketDAO;
 import entities.Ticket;
 
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.List;
 
 public interface iTicketDAO {
@@ -17,4 +18,10 @@ public interface iTicketDAO {
     boolean removeTicketByTicketId(String ticketId) throws SQLException;
 
     String getTripIdByTicketId(String ticketId) throws SQLException;
+
+    List<Ticket> getTicketsByCustomerName(String customerName) throws SQLException;
+
+    List<Ticket> getTicketsByLicensePlate(String licensePlate) throws SQLException;
+
+    List<Ticket> getTicketsByBookingTime(String bookingTime) throws SQLException;
 }
