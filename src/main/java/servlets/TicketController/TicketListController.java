@@ -25,6 +25,8 @@ public class TicketListController extends HttpServlet {
         try {
             List<Ticket> ticketList = ticketDAO.getAllTicket();
             List<Trip> tripList = tripDAO.getAllTrip();
+            int[] years = tripDAO.getMinAndMaxYearFromTrip();
+            req.setAttribute("years",years);
             req.setAttribute("ticketList",ticketList);
             req.setAttribute("tripList",tripList);
             req.getRequestDispatcher("views/TicketJSP/TicketListJSP.jsp").forward(req,resp);

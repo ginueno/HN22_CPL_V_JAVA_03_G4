@@ -1,8 +1,12 @@
 package servlets.TicketController;
 
+import daos.CarDAO.CarDAO;
+import daos.CarDAO.CarDAOimp;
 import daos.TicketDAO.TicketDAOCons;
 import daos.TicketDAO.TicketDAOImpl;
 import daos.TicketDAO.iTicketDAO;
+import daos.TripDAO.TripDAOImpl;
+import daos.TripDAO.iTripDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,22 +21,28 @@ public class TicketDeleteController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String ticketId = req.getParameter("ticketId");
+        iTicketDAO ticketDAO = new TicketDAOImpl();
+        iTripDAO tripDAO = new TripDAOImpl();
+        CarDAO carDAO = new CarDAOimp();
         if (ticketId == null || ticketId.trim().length() == 0) {
-            //ERROR
+            req.setAttribute("message", TicketDAOCons.FAIL);
         } else {
-            iTicketDAO ticketDAO = new TicketDAOImpl();
             try {
+                String tripId = ticketDAO.getTripIdByTicketId(ticketId);
                 if (ticketDAO.removeTicketByTicketId(ticketId)){
-
-                    req.setAttribute("message", TicketDAOCons.SUCCESS);
-                    req.getRequestDispatcher("");
+                    if(tripDAO.updateBookedTicketByTripId(tripId,-1)) {
+                        req.setAttribute("message", TicketDAOCons.SUCCESS);
+                    }else{
+                        req.setAttribute("message", TicketDAOCons.FAIL);
+                    }
                 }else{
-                    //ERROR
+                    req.setAttribute("message", TicketDAOCons.FAIL);
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
                 //ERROR
             }
         }
+        req.getRequestDispatcher("/ticket-list").include(req,resp);
     }
 }

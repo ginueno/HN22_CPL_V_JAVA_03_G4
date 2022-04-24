@@ -105,7 +105,7 @@
               </div>
               <div class="col-5">
                 <input type="time" class="form-control" id="txtBookingTime"
-                       name="txtBookingTime" placeholder="--:-- --" value="${requestScope.ticket.bookingTime}">
+                       name="txtBookingTime" placeholder="--:-- --">
               </div>
             </div>
             <div class="row mb-3">
@@ -120,7 +120,9 @@
                   <c:when test="${requestScope.tripList.size() != 0}">
                     <select id="txtTrip" name="txtTrip" class="form-select">
                     <c:forEach items="${requestScope.tripList}" var="trip">
+                      <c:if test="${trip.bookedTicketNumber >= 0 && trip.bookedTicketNumber < trip.maximumOnlineTicketNumber}">
                         <option value="${trip.tripId}">${trip.destination}</option>
+                      </c:if>
                     </c:forEach>
                     </select>
                   </c:when>
@@ -138,8 +140,18 @@
                 </label>
               </div>
               <div class="col-5">
-                <input type="text" class="form-control" id="txtLicensePlate" name="txtLicensePlate"
-                       placeholder="Enter car type" value="${requestScope.ticket.licensePlate}">
+                <c:choose>
+                  <c:when test="${requestScope.licensePlateList.size() != 0}">
+                    <select id="txtLicensePlate" name="txtLicensePlate" class="form-select">
+                      <c:forEach items="${requestScope.licensePlateList}" var="licensePlate">
+                        <option value="${licensePlate}">${licensePlate}</option>
+                      </c:forEach>
+                    </select>
+                  </c:when>
+                  <c:otherwise>
+                    <span class="fw-bold text-danger">There is no license plate left!</span>
+                  </c:otherwise>
+                </c:choose>
               </div>
             </div>
             <div class="row mb-3">
