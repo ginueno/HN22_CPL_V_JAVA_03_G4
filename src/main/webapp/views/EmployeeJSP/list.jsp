@@ -94,12 +94,11 @@
                 <p class="h2 fw-normal mb-3">Employee List</p>
                 <hr>
             </div>
-            <div class="ps-5 pe-5">
+            <div class="pt-3 ps-5 pe-5">
                 <div>
                     <form class="form-inline" action="${pageContext.request.contextPath}/search-emp" method="post">
-                        <div class="row">
-                            <div class="col-sm-4"></div>
-                            <div class="col-sm-4">
+                        <div class="row justify-content-end">
+                            <div class="col-sm-4 pe-0">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">
@@ -110,7 +109,7 @@
                                            value="${search}" placeholder="User search">
                                 </div>
                             </div>
-                            <div class="col-sm-3">
+                            <div class="col-sm-3 pe-0">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">
@@ -125,8 +124,8 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-1">
-                                <button type="submit" class="btn btn-primary">
+                            <div class="col-sm-1 pe-0 pe-lg-3 pb-3">
+                                <button type="submit" class="btn btn-info text-white w-100">
                                     Search
                                 </button>
                             </div>

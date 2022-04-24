@@ -50,7 +50,7 @@
                                        placeholder="Enter name">
                             </div>
                         </div>
-                        <div class="row mb-3">
+                        <div class="row mb-3 pb-0">
                             <div class="col-2">
                                 <label class="fw-bold" role="button" for="txtDepartureTime">
                                     <span>Trip </span>
@@ -62,7 +62,7 @@
                                     <c:forEach items="${listC}" var="c">
                                         <option value="${c.tripId}">${c.destination}</option>
                                     </c:forEach>
-                                </select><br>
+                                </select>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -91,7 +91,7 @@
                                     <option>Hung Yen</option>
                                     <option>Hai Phong</option>
                                     <option>Lang Son</option>
-                                </select><br>
+                                </select>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -115,7 +115,7 @@
                             </div>
                             <div class="col-5">
                                 <input type="date" class="form-control" name="dateFrom" required
-                                       id="txtDepartureDate"><br>
+                                       id="txtDepartureDate">
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -127,7 +127,7 @@
                             </div>
                             <div class="col-5">
                                 <input type="date" class="form-control" name="dateTo" required
-                                       id="txtDepartureDate2"><br>
+                                       id="txtDepartureDate2">
                             </div>
                         </div>
                         <div class="row mb-3">
