@@ -1,16 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+         pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="css/styles.css"/>
     <script src="https://kit.fontawesome.com/32b1007cf0.js" crossorigin="anonymous"></script>
     <title>Home 2</title>
 </head>
@@ -81,21 +81,22 @@
                             <th scope="col">ID</th>
                             <th scope="col">Booking Office</th>
                             <th scope="col">Trip</th>
-                            <th scope="col">Acction</th>
+                            <th scope="col">Action</th>
                         </tr>
                         </thead>
                         <tbody>
                         <c:forEach items="${listB}" var="b">
-                        <tr>
-                            <td>${b.officeId}</td>
-                            <td>${b.officeName}</td>
-                            <c:forEach items="${listT}" var="t">
-                            <c:if test="${b.tripId==t.tripId}">
-                            <td>${t.destination}</td>
-                            </c:if>
-                            </c:forEach>
-                            <td><a href="ViewBooking?id=${b.officeId}">View</a></td>
-                        </tr>
+                            <tr>
+                                <td>${b.officeId}</td>
+                                <td>${b.officeName}</td>
+                                <c:forEach items="${listT}" var="t">
+                                    <c:if test="${b.tripId==t.tripId}">
+                                        <td>${t.destination}</td>
+                                    </c:if>
+                                </c:forEach>
+                                <td><a href="ViewBooking?id=${b.officeId}" class="text-decoration-none"><i
+                                        class="far fa-eye"></i> View</a></td>
+                            </tr>
                         </c:forEach>
 
                         </tbody>

@@ -52,12 +52,12 @@
                         </a>
                     </li>
                     <li class="list-group-item border-bottom bg-light">
-                        <a href="#abc" class="nav-link link-primary" data-bs-toggle="collapse">
+                        <a href="#bookingMenu" class="nav-link link-primary" data-bs-toggle="collapse">
                             <i class="fas fa-cart-shopping"></i>
                             Booking office manager
                         </a>
                     </li>
-                    <div id="abc" class="">
+                    <div id="bookingMenu" class="collapse">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item border-bottom-0 bg-light">
                                 <a href="${pageContext.request.contextPath}/BookingList" class="ms-3 nav-link link-primary">
@@ -74,12 +74,12 @@
                         </ul>
                     </div>
                     <li class="list-group-item border-bottom bg-light">
-                        <a href="#abc" class="nav-link link-primary" data-bs-toggle="collapse">
+                        <a href="#carMenu" class="nav-link link-primary" data-bs-toggle="collapse">
                             <i class="fas fa-car"></i>
                             Car manager
                         </a>
                     </li>
-                    <div id="abc" class="">
+                    <div id="carMenu" class="collapse">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item border-bottom-0 bg-light">
                                 <a href="${pageContext.request.contextPath}/listCar" class="ms-3 nav-link link-primary">
@@ -96,12 +96,12 @@
                         </ul>
                     </div>
                     <li class="list-group-item border-bottom bg-light">
-                        <a href="#abc" class="nav-link link-primary" data-bs-toggle="collapse">
+                        <a href="#parkingMenu" class="nav-link link-primary" data-bs-toggle="collapse">
                             <i class="fas fa-chart-bar"></i>
                             Parking lot manager
                         </a>
                     </li>
-                    <div id="abc" class="">
+                    <div id="parkingMenu" class="collapse">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item border-bottom-0 bg-light">
                                 <a href="${pageContext.request.contextPath}/listParkingLot" class="ms-3 nav-link link-primary">
@@ -118,12 +118,12 @@
                         </ul>
                     </div>
                     <li class="list-group-item border-bottom bg-light">
-                        <a href="#abc" class="nav-link link-primary" data-bs-toggle="collapse">
+                        <a href="#tripMenu" class="nav-link link-primary" data-bs-toggle="collapse">
                             <i class="fas fa-plane"></i>
                             Trip manager
                         </a>
                     </li>
-                    <div id="abc" class="">
+                    <div id="tripMenu" class="collapse">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item border-bottom-0 bg-light">
                                 <a href="${pageContext.request.contextPath}/trip-list" class="ms-3 nav-link link-primary">
@@ -140,12 +140,12 @@
                         </ul>
                     </div>
                     <li class="list-group-item border-bottom bg-light">
-                        <a href="#abc" class="nav-link link-primary" data-bs-toggle="collapse">
+                        <a href="#ticketMenu" class="nav-link link-primary" data-bs-toggle="collapse">
                             <i class="fas fa-ticket"></i>
                             Ticket manager
                         </a>
                     </li>
-                    <div id="abc" class="">
+                    <div id="ticketMenu" class="collapse">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item border-bottom-0 bg-light">
                                 <a href="${pageContext.request.contextPath}/ticket-list" class="ms-3 nav-link link-primary">

@@ -58,7 +58,7 @@
                                 </label>
                             </div>
                             <div class="col-5">
-                                <select name="trip" class="form-control" id="txtDepartureTime">
+                                <select name="trip" class="form-select" id="txtDepartureTime">
                                     <c:forEach items="${listC}" var="c">
                                         <option value="${c.tripId}">${c.destination}</option>
                                     </c:forEach>
@@ -85,10 +85,11 @@
                                 </label>
                             </div>
                             <div class="col-5">
-                                <select name="place" class="form-control" id="txtCarType">
-                                    <c:forEach items="${listB}" var="b">
-                                        <option>${b.officePlace}</option>
-                                    </c:forEach>
+                                <select name="place" class="form-select" id="txtCarType">
+                                    <option>Hanoi</option>
+                                    <option>Hung Yen</option>
+                                    <option>Hai Phong</option>
+                                    <option>Lang Son</option>
                                 </select><br>
                             </div>
                         </div>

@@ -29,7 +29,7 @@ public class TicketAddController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
-            List<Trip> tripList = tripDAO.getAllTrip();
+            List<Trip> tripList = tripDAO.getAllValidTrip();
             req.setAttribute("tripList",tripList);
             List<String> licensePlateList = carDAO.getAllLicensePlate();
             req.setAttribute("licensePlateList",licensePlateList);

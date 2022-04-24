@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface iTripDAO {
     List<Trip> getAllTrip() throws SQLException;
+    List<Trip> getAllValidTrip() throws SQLException;
     boolean insertTrip(Trip trip) throws SQLException;
     Trip getTripByTripId(String tripId) throws SQLException;
     boolean updateTrip(Trip trip) throws SQLException;

@@ -36,6 +36,32 @@ public class TripDAOImpl implements iTripDAO {
     }
 
     @Override
+    public List<Trip> getAllValidTrip() throws SQLException {
+        List<Trip> tripList = new ArrayList<>();
+        try (Connection connection = DBUtils.getInstance().getConnection();
+             PreparedStatement pstm = connection.prepareStatement(TripDAOCons.TRIP_QUERY_GET_ALL_VALID)) {
+            ResultSet rs = pstm.executeQuery();
+            while (rs.next()) {
+                Trip trip = Trip.builder()
+                        .tripId(rs.getInt("tripId"))
+                        .bookedTicketNumber(rs.getInt("bookedTicketNumber"))
+                        .carType(rs.getString("carType"))
+                        .departureDate(rs.getDate("departureDate"))
+                        .departureTime(rs.getTime("departureTime"))
+                        .destination(rs.getString("destination"))
+                        .driver(rs.getString("driver"))
+                        .maximumOnlineTicketNumber(rs.getInt("maximumOnlineTicketNumber"))
+                        .build();
+                tripList.add(trip);
+            }
+            return tripList;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new SQLException();
+        }
+    }
+
+    @Override
     public boolean insertTrip(Trip trip) throws SQLException {
         try (Connection connection = DBUtils.getInstance().getConnection();
              PreparedStatement pstm = connection.prepareStatement(TripDAOCons.TRIP_QUERY_INSERT)) {

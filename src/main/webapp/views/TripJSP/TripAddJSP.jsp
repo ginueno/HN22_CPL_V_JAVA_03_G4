@@ -18,65 +18,18 @@
 <body>
 <div class="container-fluid">
     <!--NAVBAR-->
-    <div class="row">
-        <div class="col-2 px-0">
-            <li class="list-group-item bg-light border-end-0 border-top-0 border-start-0">
-                <a class="nav-link text-secondary text-decoration-none" href="#">
-                    <i class="fas fa-plane"></i>
-                    Trip
-                </a>
-            </li>
-        </div>
-        <div class="col-10 px-0">
-            <div class="nav-link bg-light d-flex flex-row-reverse border-bottom">
-                <a class="nav-link link-primary text-decoration-none" href="#">
-                    <i class="fas fa-sign-out-alt"></i>
-                    Logout
-                </a>
-                <a class="nav-link link-primary text-decoration-none me-4" href="#">
-                    Welcome %name%
-                </a>
-            </div>
-        </div>
-    </div>
+    <jsp:include page="nav.jsp"></jsp:include>
     <!--END NAVBAR-->
     <div class="row">
-
         <!--SIDE BAR-->
-        <div class="col-2 px-0">
-            <div class="bg-light vh-100 border-end">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item border-bottom bg-light">
-                        <a href="#abc" class="nav-link link-primary" data-bs-toggle="collapse">
-                            <i class="fas fa-plane"></i>
-                            Trip manager
-                        </a>
-                    </li>
-                    <div id="abc" class="">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item border-bottom-0 bg-light">
-                                <a href="${pageContext.request.contextPath}/trip-list" class="ms-3 nav-link link-primary">
-                                    <i class="fas fa-list"></i>
-                                    Trip list
-                                </a>
-                            </li>
-                            <li class="list-group-item border-bottom bg-light">
-                                <a href="${pageContext.request.contextPath}/trip-add" class="ms-3 nav-link link-primary">
-                                    <i class="fas fa-plus"></i>
-                                    Add Trip
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </ul>
-            </div>
-        </div>
+        <jsp:include page="sideMenu.jsp"></jsp:include>
         <!--END SIDE BAR-->
 
         <!--CONTENT-->
         <div class="col-10 px-0">
             <div class="pt-5 ps-5 pe-5">
-                <p class="h2 fw-normal mb-3">Add Trip <c:if test="${requestScope.message ne null}"><span class="text-danger">${requestScope.message}</span></c:if></p>
+                <p class="h2 fw-normal mb-3">Add Trip <c:if test="${requestScope.message ne null}"><span
+                        class="text-danger">${requestScope.message}</span></c:if></p>
                 <hr>
             </div>
 
@@ -93,7 +46,7 @@
                             </div>
                             <div class="col-5">
                                 <input type="text" class="form-control" id="txtDestination" name="txtDestination"
-                                       placeholder="Enter destination">
+                                       placeholder="Enter destination" required>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -105,7 +58,7 @@
                             </div>
                             <div class="col-5">
                                 <input type="time" class="form-control" id="txtDepartureTime"
-                                       name="txtDepartureTime" placeholder="--:-- --">
+                                       name="txtDepartureTime" placeholder="--:-- --" required>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -117,7 +70,7 @@
                             </div>
                             <div class="col-5">
                                 <input type="text" class="form-control" id="txtDriver" name="txtDriver"
-                                       placeholder="Enter driver">
+                                       placeholder="Enter driver" required>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -129,7 +82,7 @@
                             </div>
                             <div class="col-5">
                                 <input type="text" class="form-control" id="txtCarType" name="txtCarType"
-                                       placeholder="Enter car type">
+                                       placeholder="Enter car type" required>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -141,7 +94,7 @@
                             </div>
                             <div class="col-5">
                                 <input type="text" class="form-control" id="txtMaximumTickerNumber"
-                                       name="txtMaximumTickerNumber" placeholder="0">
+                                       name="txtMaximumTickerNumber" placeholder="0" required>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -153,15 +106,17 @@
                             </div>
                             <div class="col-5">
                                 <input type="text" class="form-control" id="txtDepartureDate"
-                                       name="txtDepartureDate" placeholder="dd/mm/yyyy">
+                                       name="txtDepartureDate" placeholder="dd/mm/yyyy" required>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-7 text-center">
                                 <button type="reset" class="btn btn-warning"><i class="fas fa-undo"></i>
-                                    Reset</button>
+                                    Reset
+                                </button>
                                 <button type="submit" class="btn btn-success"><i class="fas fa-plus"></i>
-                                    Add</button>
+                                    Add
+                                </button>
                             </div>
                         </div>
                     </form>

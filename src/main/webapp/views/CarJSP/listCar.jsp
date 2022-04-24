@@ -17,65 +17,12 @@
 <body>
 <div class="container-fluid">
     <!--NAVBAR-->
-    <div class="row">
-        <div class="col-2 px-0">
-            <li class="list-group-item bg-light border-end-0 border-top-0 border-start-0">
-                <a class="nav-link text-secondary text-decoration-none" href="#">
-                    <i class="fas fa-users"></i>
-                    Car
-                </a>
-            </li>
-        </div>
-        <div class="col-10 px-0">
-            <div class="nav-link bg-light d-flex flex-row-reverse border-bottom">
-                <a class="nav-link link-primary text-decoration-none" href="#">
-                    <i class="fas fa-sign-out-alt"></i>
-                    Logout
-                </a>
-                <a class="nav-link link-primary text-decoration-none me-4" href="#">
-                    Welcome %name%
-                </a>
-            </div>
-        </div>
-    </div>
+    <jsp:include page="nav.jsp"></jsp:include>
     <!--END NAVBAR-->
     <div class="row">
 
         <!--SIDE BAR-->
-        <div class="col-2 px-0">
-            <div class="bg-light vh-100 border-end">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item bg-light">
-                        <a href="#" class="nav-link link-primary">
-                            <i class="fas fa-tachometer-alt"></i>
-                            Dashboard
-                        </a>
-                    </li>
-                    <li class="list-group-item border-bottom bg-light">
-                        <a href="#abc" class="nav-link link-primary" data-bs-toggle="collapse">
-                            <i class="fas fa-car"></i>
-                            Car manager
-                        </a>
-                    </li>
-                    <div id="abc" class="">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item border-bottom-0 bg-light">
-                                <a href="${pageContext.request.contextPath}/listCar" class="ms-3 nav-link link-primary">
-                                    <i class="fas fa-list"></i>
-                                    Car list
-                                </a>
-                            </li>
-                            <li class="list-group-item border-bottom bg-light">
-                                <a href="${pageContext.request.contextPath}/addCar" class="ms-3 nav-link link-primary">
-                                    <i class="fas fa-plus"></i>
-                                    Add Car
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </ul>
-            </div>
-        </div>
+        <jsp:include page="sideMenu.jsp"></jsp:include>
         <!--END SIDE BAR-->
 
         <!--CONTENT-->
@@ -149,8 +96,16 @@
                                 <td class="">${car.licensePlate}</td>
                                 <td class="">${car.carColor}</td>
                                 <td class="">${car.carType}</td>
-                                <td class="">${car.company}</td>
-                                <td class="">${car.parkId}</td>
+                                <c:forEach items="${company}" var="c">
+                                    <c:if test="${c.officeId == car.company}">
+                                        <td>${c.officeName}</td>
+                                    </c:if>
+                                </c:forEach>
+                                <c:forEach items="${parkId}" var="p">
+                                    <c:if test="${p.parkId == car.parkId}">
+                                        <td>${p.parkName}</td>
+                                    </c:if>
+                                </c:forEach>
                                 <td class="">
                                 <span class="me-3">
                                 <a href="${pageContext.request.contextPath}/updateCar?licensePlate=${car.licensePlate}"
@@ -158,7 +113,7 @@
                                 </span>
                                     <span>
                                 <a onclick="return confirmMes()" href="${pageContext.request.contextPath}/deleteCar?licensePlate=${car.licensePlate}"
-                                   class="text-decoration-none"><i class="fas fa-trash-alt"></i> Delete</a>
+                                   class="text-decoration-none" onclick="return confirm('Are you sure to delete this car?')"><i class="fas fa-trash-alt"></i> Delete</a>
                                     </span>
                                 </td>
                             </tr>

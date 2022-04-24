@@ -1,9 +1,15 @@
 package servlets.CarController;
 
+import daos.BookingOfficeDAO.BookingDAO;
+import daos.BookingOfficeDAO.BookingDAOimp;
 import daos.CarDAO.CarDAO;
 import daos.CarDAO.CarDAOConstants;
 import daos.CarDAO.CarDAOimp;
+import daos.ParkingLotDAO.ParkingLotDAOImpl;
+import daos.ParkingLotDAO.iParkingLotDAO;
+import entities.BookingOffice;
 import entities.Car;
+import entities.ParkingLot;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,10 +24,16 @@ import java.util.List;
 public class ListCarController extends HttpServlet {
     private static final long serialVersionUID = 1L;
     CarDAO carDAO = new CarDAOimp();
+    iParkingLotDAO parkingLotDAO = new ParkingLotDAOImpl();
+    BookingDAO bookingDAO = new BookingDAOimp();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try{
+            List<ParkingLot> listPark = parkingLotDAO.getAllParkingLotByStatus("Blank");
+            List<BookingOffice> listCompany = bookingDAO.getAllBooking();
+            req.setAttribute("parkId", listPark);
+            req.setAttribute("company", listCompany);
             String indexPage = req.getParameter("index");
             if(indexPage == null){
                 indexPage = "1";
