@@ -30,12 +30,28 @@ public class ListCarController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
+
+            String indexPage = req.getParameter("index");
+            if(indexPage == null){
+                indexPage = "1";
+            }
+            int index = Integer.parseInt(indexPage);
+            int numberOfCars = carDAO.getNumberOfCars();
+            int pageSize = CarDAOConstants.PAGE_SIZE_CAR;
+            int endPage = numberOfCars / pageSize;
+            if(numberOfCars % pageSize != 0){
+                endPage++;
+            }
+            List<Car> list = carDAO.pagingCar(index);
+            req.setAttribute("listCars",list);
+            req.setAttribute("end",endPage);
+
             List<ParkingLot> listPark = parkingLotDAO.getAllParkingLotByStatus("Blank");
             List<BookingOffice> listCompany = bookingDAO.getAllBooking();
             req.setAttribute("parkId", listPark);
             req.setAttribute("company", listCompany);
-            List<Car> list = carDAO.getAll();
-            req.setAttribute("listCars", list);
+//            List<Car> list = carDAO.getAll();
+//            req.setAttribute("listCars", list);
             req.getRequestDispatcher("views/CarJSP/listCar.jsp").forward(req, resp);
 
         } catch (SQLException e) {
