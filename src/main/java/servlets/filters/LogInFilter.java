@@ -53,10 +53,12 @@ public class LogInFilter implements Filter {
         excludedRequestPark.add("/ticket-delete");
         excludedRequestPark.add("/ticket-list");
         excludedRequestPark.add("/ticket-view");
+        excludedRequestPark.add("/ticket-search");
         excludedRequestPark.add("/trip-add");
         excludedRequestPark.add("/trip-delete");
         excludedRequestPark.add("/trip-edit");
         excludedRequestPark.add("/trip-list");
+        excludedRequestPark.add("/trip-search");
         excludedRequestPark.add("/logout");
     }
 

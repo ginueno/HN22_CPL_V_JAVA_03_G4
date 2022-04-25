@@ -176,7 +176,9 @@
                                         </span>
                                             <span>
                                             <a href="${pageContext.request.contextPath}/ticket-delete?ticketId=${ticket.ticketId}"
-                                               class="text-decoration-none"><i class="fas fa-trash-alt"></i> Delete</a>
+                                               class="text-decoration-none"
+                                               onclick="return confirm('Are you sure to delete this trip?')"><i
+                                                    class="fas fa-trash-alt"></i> Delete</a>
                                         </span>
                                         </td>
                                     </tr>

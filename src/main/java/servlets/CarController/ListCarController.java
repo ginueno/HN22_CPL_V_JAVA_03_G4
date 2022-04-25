@@ -34,20 +34,8 @@ public class ListCarController extends HttpServlet {
             List<BookingOffice> listCompany = bookingDAO.getAllBooking();
             req.setAttribute("parkId", listPark);
             req.setAttribute("company", listCompany);
-            String indexPage = req.getParameter("index");
-            if (indexPage == null) {
-                indexPage = "1";
-            }
-            int index = Integer.parseInt(indexPage);
-            int numberOfCars = carDAO.getNumberOfCars();
-            int pageSize = CarDAOConstants.PAGE_SIZE_CAR;
-            int endPage = numberOfCars / pageSize;
-            if (numberOfCars % pageSize != 0) {
-                endPage++;
-            }
-            List<Car> list = carDAO.pagingCar(index);
+            List<Car> list = carDAO.getAll();
             req.setAttribute("listCars", list);
-            req.setAttribute("end", endPage);
             req.getRequestDispatcher("views/CarJSP/listCar.jsp").forward(req, resp);
 
         } catch (SQLException e) {
