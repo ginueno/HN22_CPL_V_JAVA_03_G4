@@ -63,13 +63,21 @@ public class ViewController extends HttpServlet {
                 .department(dept)
                 .build();
         try {
-            boolean check = employeeDAO.update(employee);
-            if (check) {
-                req.setAttribute("bday", DateUtils.convertJavaDateToSqlDate(employee.getEmployeeBirthdate()));
-                req.setAttribute("NOTI", "Update successfully");
-                req.setAttribute("employee", employee);
+            req.setAttribute("employee", employee);
+            req.setAttribute("bday", DateUtils.convertJavaDateToSqlDate(employee.getEmployeeBirthdate()));
+            if (!employeeDAO.search(phone, "phone").isEmpty() && !phone.equals(employeeDAO.select(id).getEmployeePhone())) {
+                req.setAttribute("ERROR", "This phone is already existed.");
+            } else if (!employeeDAO.search(email, "email").isEmpty() && !email.equals(employeeDAO.select(id).getEmployeeEmail())) {
+                req.setAttribute("ERROR", "This email is already existed.");
             } else {
-                req.setAttribute("ERROR", "ERROR! Update failed.");
+                boolean check = employeeDAO.update(employee);
+                if (check) {
+                    req.setAttribute("bday", DateUtils.convertJavaDateToSqlDate(employee.getEmployeeBirthdate()));
+                    req.setAttribute("NOTI", "Update successfully");
+                    req.setAttribute("employee", employee);
+                } else {
+                    req.setAttribute("ERROR", "ERROR! Update failed.");
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();

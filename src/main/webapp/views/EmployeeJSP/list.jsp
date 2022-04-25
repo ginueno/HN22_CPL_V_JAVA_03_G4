@@ -148,7 +148,7 @@
                             <tr>
                                 <td>${employee.employeeId}</td>
                                 <td>${employee.employeeName}</td>
-                                <td><fmt:formatDate value="${employee.employeeBirthdate}" pattern="yyyy-mm-dd"/></td>
+                                <td><fmt:formatDate value="${employee.employeeBirthdate}" pattern="yyyy-MM-dd"/></td>
                                 <td>${employee.employeeAddress}</td>
                                 <td>${employee.employeePhone}</td>
                                 <td>${employee.department}</td>

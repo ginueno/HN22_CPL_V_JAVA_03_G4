@@ -150,6 +150,8 @@ public class EmployeeDAOImpl implements iEmployeeDAO {
                 preparedStatement = connection.prepareStatement(Constants.EMPLOYEE_GET_BY_PHONE);
             if (criteria.equals("dept"))
                 preparedStatement = connection.prepareStatement(Constants.EMPLOYEE_GET_BY_DEPARTMENT);
+            if (criteria.equals("email"))
+                preparedStatement = connection.prepareStatement(Constants.EMPLOYEE_FIND_BY_EMAIL);
             preparedStatement.setString(1, search);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {

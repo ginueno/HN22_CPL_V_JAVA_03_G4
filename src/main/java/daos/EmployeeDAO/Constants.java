@@ -22,4 +22,5 @@ public class Constants {
     public static String EMPLOYEE_DELETE = "DELETE FROM employee WHERE employeeId = ?";
     public static String EMPLOYEE_LOGIN = "SELECT * FROM employee WHERE account = ? and password = ?";
     public static String EMPLOYEE_FIND_BY_ACCOUNT = "SELECT * FROM employee WHERE account = ?";
+    public static String EMPLOYEE_FIND_BY_EMAIL = "SELECT * FROM employee WHERE employeeEmail = ?";
 }
