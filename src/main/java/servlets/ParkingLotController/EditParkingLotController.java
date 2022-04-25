@@ -58,7 +58,10 @@ public class EditParkingLotController extends HttpServlet {
 
             boolean check = lotDAO.updateParkingLot(lot);
             if (check) {
-                resp.sendRedirect("listParkingLot");
+                req.setAttribute("message","Edit Successful!!");
+                List<ParkingLot> list = lotDAO.getAllParkingLot();
+                req.setAttribute("ListParkingLot", list);
+                req.getRequestDispatcher("views/ParkingLotJSP/listParkingLot.jsp").forward(req,resp);
             }
         } catch (SQLException e) {
             e.printStackTrace();

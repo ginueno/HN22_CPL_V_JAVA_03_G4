@@ -51,7 +51,10 @@ public class AddParkingController extends HttpServlet {
 
             boolean check = lotDAO.addParkingLot(lot);
             if (check) {
-                resp.sendRedirect("listParkingLot");
+                req.setAttribute("message","Add Successful!!");
+                List<ParkingLot> list = lotDAO.getAllParkingLot();
+                req.setAttribute("ListParkingLot", list);
+                req.getRequestDispatcher("views/ParkingLotJSP/listParkingLot.jsp").forward(req,resp);
             }
         } catch (SQLException e) {
             e.printStackTrace();

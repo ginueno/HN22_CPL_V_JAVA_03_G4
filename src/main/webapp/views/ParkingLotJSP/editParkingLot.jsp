@@ -26,7 +26,7 @@
         <!--CONTENT-->
         <div class="col-10 px-0">
             <div class="pt-5 ps-5 pe-5">
-                <p class="h2 fw-normal mb-3">Parking lot list</p>
+                <p class="h2 fw-normal mb-3">Edit parking lot</p>
                 <hr>
             </div>
 

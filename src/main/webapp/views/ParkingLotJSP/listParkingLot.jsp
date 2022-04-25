@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/styles.css"/>
     <script src="https://kit.fontawesome.com/32b1007cf0.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -75,6 +75,10 @@
                         </div>
                     </form>
                 </div>
+                <c:if test="${message ne null}">
+                    <div class="row justify-content-center text-center"><h4 style="color: green">${message}</h4>
+                    </div>
+                </c:if>
                 <!--SEARCH END-->
                 <div>
                     <!--ADD CODE HERE-->
@@ -133,7 +137,7 @@
         ordering: false,
         info: false,
         lengthChange: false,
-        "pageLength": 10,
+        "pageLength": 5,
     });
 </script>
 

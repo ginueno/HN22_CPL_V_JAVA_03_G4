@@ -30,7 +30,7 @@ public class ListCarController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
-            List<ParkingLot> listPark = parkingLotDAO.getAllParkingLotByStatus("Blank");
+            List<ParkingLot> listPark = parkingLotDAO.getAllParkingLot();
             List<BookingOffice> listCompany = bookingDAO.getAllBooking();
             req.setAttribute("parkId", listPark);
             req.setAttribute("company", listCompany);
