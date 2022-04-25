@@ -11,10 +11,12 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/styles.css"/>
     <script src="https://kit.fontawesome.com/32b1007cf0.js" crossorigin="anonymous"></script>
+    <title>ERROR</title>
 </head>
 <body>
     <div class="container-fluid">
-
+        <h1 class="text-danger">ERROR</h1>
+        <p>${requestScope.message}</p>
     </div>
 </body>
 </html>

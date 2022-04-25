@@ -208,7 +208,7 @@
                                 </label>
                             </div>
                             <div class="col-5">
-                                <select class="form-control" id="dept" name="dept">
+                                <select class="form-select" id="dept" name="dept">
                                     <option value="employee">Employee</option>
                                     <option value="parking">Parking</option>
                                 </select>

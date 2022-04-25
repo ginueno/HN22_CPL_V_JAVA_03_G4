@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.List;
 
 @WebServlet(name = "TripEditController", urlPatterns = "/trip-edit")
 public class TripEditController extends HttpServlet {
@@ -77,18 +78,21 @@ public class TripEditController extends HttpServlet {
                     System.out.println(trip);
                     iTripDAO tripDAO = new TripDAOImpl();
                     if (tripDAO.updateTrip(trip)) {
-                        req.setAttribute("message", "Edit" + TripDAOCons.SUCCESS);
-                        req.getRequestDispatcher("views/TripJSP/TripListJSP.jsp").forward(req, resp);
+                        req.setAttribute("message", TripDAOCons.SUCCESS);
                     } else {
-                        req.setAttribute("message", "Edit" + TripDAOCons.FAIL + "!");
-                        req.getRequestDispatcher("views/TripJSP/TripListJSP.jsp").forward(req, resp);
+                        req.setAttribute("message", TripDAOCons.FAIL);
                     }
+                    List<Trip> tripList = tripDAO.getAllTrip();
+                    int[] years = tripDAO.getMinAndMaxYearFromTrip();
+                    req.setAttribute("years", years);
+                    req.setAttribute("tripList", tripList);
+                    req.getRequestDispatcher("views/TripJSP/TripListJSP.jsp").forward(req, resp);
                 } catch (ParseException e) {
-                    req.setAttribute("message", "Edit" + TripDAOCons.FAIL + " cause some types of fields are incorrect!");
-                    req.getRequestDispatcher("views/TripJSP/TripListJSP.jsp").forward(req, resp);
-                } catch (SQLException e) {
-                    req.setAttribute("message", "Edit" + TripDAOCons.FAIL + "!");
-                    req.getRequestDispatcher("views/TripJSP/TripListJSP.jsp").forward(req, resp);
+                    req.setAttribute("message",TripDAOCons.FAIL);
+                    req.getRequestDispatcher("views/common/error.jsp").forward(req, resp);
+                }catch (SQLException e){
+                    req.setAttribute("message","Database connection error");
+                    req.getRequestDispatcher("views/common/error.jsp").forward(req, resp);
                 }
             }
         }
