@@ -32,6 +32,10 @@
                 <p class="h2 fw-normal mb-3">Add Booking Office</p>
                 <hr>
             </div>
+            <div class="text-center">
+                <p class="text-success">${NOTI}</p>
+                <p class="text-danger">${ERROR}</p>
+            </div>
 
             <div class="pt-5 ps-5 pe-5">
                 <div>

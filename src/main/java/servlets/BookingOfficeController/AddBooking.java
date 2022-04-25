@@ -26,6 +26,7 @@ public class AddBooking extends HttpServlet {
         request.setAttribute("listB", b);
         List<Trip> c = d.getAllDestination();
         request.setAttribute("listC", c);
+        request.setAttribute("NOTI", "Add Successfully");
         request.getRequestDispatcher("/views/BookingOfficeJSP/AddBooking.jsp").forward(request, response);
 
     }

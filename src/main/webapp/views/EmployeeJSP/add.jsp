@@ -197,6 +197,8 @@
                                 <input type="password" class="form-control" id="password" name="password"
                                        placeholder="Enter password"
                                        pattern="^(?=.*?[A-Z])(?=.*?[a-z]).{6,}$"
+                                       oninvalid="this.setCustomValidity('Password must be over 6 characters and at least a digit, an uppercase and a lowercase.')"
+                                       oninput="setCustomValidity('')"
                                        required>
                             </div>
                         </div>

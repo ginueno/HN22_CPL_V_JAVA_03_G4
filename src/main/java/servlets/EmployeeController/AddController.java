@@ -59,7 +59,7 @@ public class AddController extends HttpServlet {
                 req.setAttribute("ERROR", "This account is already existed.");
             } else if(!employeeDAO.search(phone,"phone").isEmpty()) {
                 req.setAttribute("ERROR", "This phone is already existed.");
-            } else if(!employeeDAO.search(email,"email").isEmpty()) {
+            } else if(!employeeDAO.search(email,"email").isEmpty() && !email.equals("")) {
                 req.setAttribute("ERROR", "This email is already existed.");
             } else {
                 boolean check = employeeDAO.add(employee);
