@@ -21,7 +21,7 @@ public class DeleteCarController extends HttpServlet {
         String licensePlate = req.getParameter("licensePlate");
         try {
             carDAO.delete(licensePlate);
-            resp.sendRedirect(req.getContextPath()+"/listCar");
+            resp.sendRedirect(req.getContextPath() + "/listCar");
         } catch (SQLException e) {
             e.printStackTrace();
         }

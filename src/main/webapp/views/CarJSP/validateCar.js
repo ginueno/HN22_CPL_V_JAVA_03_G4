@@ -1,4 +1,4 @@
-function validateLicensePlate(){
+function validateLicensePlate() {
     var licensePlate = document.getElementById("licensePlate").value;
     var regex = new RegExp("[0-9]{2}[A-Z]-[0-9]{4,5}");
     if (regex.test(licensePlate)) {
@@ -10,7 +10,7 @@ function validateLicensePlate(){
     }
 }
 
-function confirmMes(){
+function confirmMes() {
     var result = confirm("Wanna delete this record?");
     if (result == true) {
         alert("Done");

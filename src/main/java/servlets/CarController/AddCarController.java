@@ -1,8 +1,14 @@
 package servlets.CarController;
 
+import daos.BookingOfficeDAO.BookingDAO;
+import daos.BookingOfficeDAO.BookingDAOimp;
 import daos.CarDAO.CarDAO;
 import daos.CarDAO.CarDAOimp;
+import daos.ParkingLotDAO.ParkingLotDAOImpl;
+import daos.ParkingLotDAO.iParkingLotDAO;
+import entities.BookingOffice;
 import entities.Car;
+import entities.ParkingLot;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,16 +23,18 @@ import java.util.List;
 public class AddCarController extends HttpServlet {
     private static final long serialVersionUID = 1L;
     CarDAO carDAO = new CarDAOimp();
+    iParkingLotDAO parkingLotDAO = new ParkingLotDAOImpl();
+    BookingDAO bookingDAO = new BookingDAOimp();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
 
-            List<String> listParkId = carDAO.getAllParkId();
-            List<String> listCompany = carDAO.getAllCompany();
-            req.setAttribute("parkId", listParkId);
+            List<ParkingLot> listPark = parkingLotDAO.getAllParkingLotByStatus("Blank");
+            List<BookingOffice> listCompany = bookingDAO.getAllBooking();
+            req.setAttribute("parkId", listPark);
             req.setAttribute("company", listCompany);
-            req.getRequestDispatcher("views/CarJSP/addCar.jsp").forward(req,resp);
+            req.getRequestDispatcher("views/CarJSP/addCar.jsp").forward(req, resp);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -47,16 +55,24 @@ public class AddCarController extends HttpServlet {
                 .company(company)
                 .parkId(parkId).build();
         try {
-            boolean check = carDAO.add(car);
-            if(check) {
-                resp.sendRedirect("listCar");
-                req.setAttribute("NOTI","Successfully");
+            List<ParkingLot> listPark = parkingLotDAO.getAllParkingLotByStatus("Blank");
+            List<BookingOffice> listCompany = bookingDAO.getAllBooking();
+            req.setAttribute("parkId", listPark);
+            req.setAttribute("company", listCompany);
+            if (carDAO.getCarByLicensePlate(licensePlate) != null) {
+                req.setAttribute("ERROR", "This license plate is already existed.");
             } else {
-                req.setAttribute("ERROR","Failed.");
+                boolean check = carDAO.add(car);
+                if (check) {
+                    req.setAttribute("NOTI", "Add successfully");
+                } else {
+                    req.setAttribute("ERROR", "ERROR! Add failed.");
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-//        req.getRequestDispatcher("views/CarJSP/add.jsp").forward(req,resp);
+
+        req.getRequestDispatcher("views/CarJSP/addCar.jsp").forward(req, resp);
     }
 }

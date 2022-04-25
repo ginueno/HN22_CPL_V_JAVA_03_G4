@@ -22,7 +22,7 @@ public class CarDAOimp implements CarDAO {
             conn = DBUtils.getInstance().getConnection();
             ps = conn.prepareStatement(CarDAOConstants.CAR_GET_ALL);
             rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 Car c = Car.builder()
                         .licensePlate(rs.getString(1))
                         .carColor(rs.getString(2))
@@ -31,7 +31,7 @@ public class CarDAOimp implements CarDAO {
                         .parkId(rs.getInt(5)).build();
                 list.add(c);
             }
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 
@@ -44,8 +44,8 @@ public class CarDAOimp implements CarDAO {
         try {
             conn = DBUtils.getInstance().getConnection();
             ps = conn.prepareStatement(CarDAOConstants.CAR_ADD);
-            ps.setString(1,c.getLicensePlate());
-            ps.setString(2,c.getCarColor());
+            ps.setString(1, c.getLicensePlate());
+            ps.setString(2, c.getCarColor());
             ps.setString(3, c.getCarType());
             ps.setInt(4, c.getCompany());
             ps.setInt(5, c.getParkId());
@@ -118,10 +118,10 @@ public class CarDAOimp implements CarDAO {
         List<Car> list = new ArrayList<>();
         try {
             conn = DBUtils.getInstance().getConnection();
-            if(criteria.equals("licensePlate")) ps = conn.prepareStatement(CarDAOConstants.GET_BY_LICENSE_PLATE);
-            if(criteria.equals("carColor")) ps = conn.prepareStatement(CarDAOConstants.GET_BY_CAR_COLOR);
-            if(criteria.equals("carType")) ps = conn.prepareStatement(CarDAOConstants.GET_BY_CAR_TYPE);
-            ps.setString(1,search);
+            if (criteria.equals("licensePlate")) ps = conn.prepareStatement(CarDAOConstants.GET_BY_LICENSE_PLATE);
+            if (criteria.equals("carColor")) ps = conn.prepareStatement(CarDAOConstants.GET_BY_CAR_COLOR);
+            if (criteria.equals("carType")) ps = conn.prepareStatement(CarDAOConstants.GET_BY_CAR_TYPE);
+            ps.setString(1, search);
             rs = ps.executeQuery();
             while (rs.next()) {
                 Car car = Car.builder()
@@ -167,7 +167,7 @@ public class CarDAOimp implements CarDAO {
             list.add("4");
 
             return list;
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             throw new SQLException();
         }
@@ -196,9 +196,9 @@ public class CarDAOimp implements CarDAO {
         try {
             conn = DBUtils.getInstance().getConnection();
             ps = conn.prepareStatement(CarDAOConstants.PAGING_CAR);
-            ps.setInt(1,(index-1)*CarDAOConstants.PAGE_SIZE_CAR);
+            ps.setInt(1, (index - 1) * CarDAOConstants.PAGE_SIZE_CAR);
             rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 Car c = Car.builder()
                         .licensePlate(rs.getString(1))
                         .carColor(rs.getString(2))
@@ -207,11 +207,27 @@ public class CarDAOimp implements CarDAO {
                         .parkId(rs.getInt(5)).build();
                 list.add(c);
             }
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 
         return list;
+    }
+
+    @Override
+    public List<String> getAllLicensePlate() throws SQLException {
+        try (Connection connection = DBUtils.getInstance().getConnection();
+             PreparedStatement pstm = connection.prepareStatement(CarDAOConstants.CAR_QUERY_GET_ALL_LICENSEPLATE)) {
+            ResultSet rs = pstm.executeQuery();
+            List<String> licensePlateList = new ArrayList<>();
+            while (rs.next()) {
+                licensePlateList.add(rs.getString("licensePlate"));
+            }
+            return licensePlateList;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new SQLException();
+        }
     }
 
 
